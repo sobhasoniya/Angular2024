@@ -18,7 +18,7 @@ export class DDiagnosisVMService {
   //Get all LabTests
   BindListLabTest()
   {
-    this.httpClient.get(environment.apiUrl+ "api/A_LabTests")
+    this.httpClient.get(environment.apiUrl+ "/api/A_LabTests")
     .toPromise().then(response => {
       this.labTests=response as LabTests[];
       console.log(this.labTests);
@@ -28,7 +28,7 @@ export class DDiagnosisVMService {
   //Get all medicines
   BindListMedicines()
   {
-    this.httpClient.get(environment.apiUrl+ "api/A_Medicine")
+    this.httpClient.get(environment.apiUrl+ "/api/A_Medicine")
     .toPromise().then(response => {
       this.medicines=response as Medicines[];
       console.log(this.medicines);
@@ -37,7 +37,7 @@ export class DDiagnosisVMService {
 
   InsertDiagnosis(diag:DDiagnosisVM):Observable<any>
   {
-    return this.httpClient.post(environment.apiUrl + "api/Doctor", diag);
+    return this.httpClient.post(environment.apiUrl + "/api/Doctor", diag);
   }
 
 

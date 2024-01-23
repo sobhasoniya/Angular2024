@@ -14,7 +14,7 @@ export class DAppointmentsVMService {
 
   BindAppointmentsList(docId:number)
   {
-    this.httpclient.get(environment.apiUrl + "api/Doctor/GetAppointmentView?docId=" + docId)
+    this.httpclient.get(environment.apiUrl + "/api/Doctor/GetAppointmentView?docId=" + docId)
     .toPromise().then(response =>{
       this.appointments=response as DAppointmentsVM[];
       console.log(this.appointments);

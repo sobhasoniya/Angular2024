@@ -83,7 +83,7 @@ LoginCredentials()
         }
         else if(response.rId==5)
         {
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('p-pharmacist/home');
         }
         else
         {

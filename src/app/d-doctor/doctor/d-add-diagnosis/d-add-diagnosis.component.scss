@@ -1,7 +1,9 @@
 .form-box {
-  width: 80%;
-  margin-left: 33%;
-  padding: 20px;
+  width: 60%;
+  margin-left: 28%;
+  padding-left : 20px;
+  padding-right:  20px;
+  padding-bottom:   20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -23,4 +25,11 @@
 label
 {
   text-align: left;
+}
+
+h5{
+  font-weight: bold;
+  color: darkslategrey;
+  text-align: center;
+  font-size: 150%;
 }

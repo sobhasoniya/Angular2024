@@ -11,6 +11,6 @@ export class LoginUsersService {
   constructor(private httpClient:HttpClient) { }
 
   public loginVerify(user:LoginUsers){
-    return this.httpClient.get<LoginUsers>(environment.apiUrl+"api/Login/"+ user.UserName+ '/'+ user.Password);
+    return this.httpClient.get<LoginUsers>(environment.apiUrl+"/api/Login/"+ user.UserName+ '/'+ user.Password);
   }
 }

@@ -7,13 +7,10 @@ import { DPatientHistoryComponent } from './doctor/d-patient-history/d-patient-h
 import { DAddDiagnosisComponent } from './doctor/d-add-diagnosis/d-add-diagnosis.component';
 
 const routes: Routes = [
-  {path:'',component:DoctorComponent,
-children:[
   {path:'listAppointments', component: DAppointmentViewComponent},
   {path:'patientDetails/:appointmentId', component:DPatientDetailsComponent},
   {path:'patientHistory/:patientId', component:DPatientHistoryComponent},
   {path:'addDiagnosis/:appointmentId', component:DAddDiagnosisComponent}
-]}
 ];
 
 @NgModule({
