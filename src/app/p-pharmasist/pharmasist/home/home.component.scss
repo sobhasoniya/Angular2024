@@ -1,0 +1,72 @@
+body {
+    background-image: url('/src/assets/images/medicine.jpg'); /* Assuming the image is in the assets folder */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.img-container {
+    margin-bottom: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    color: #581845;
+    margin-bottom: 60px;
+    margin-top: 100px;
+}
+
+h3 {
+    margin-top: 10px;
+}
+
+.btn-primary {
+    color: white;
+    background-color: #713707; /* Bootstrap primary color */
+    border: none;
+    padding: 45px 20px; /* Adjust the padding for button size */
+    margin-top: 50px;
+    border-radius: 15px; /* Adjust the border-radius for curved edges */
+    margin-right: 20px; /* Adjust the distance between buttons */
+  }
+  
+  /* Apply the margin-right to all buttons except the last one to avoid extra space */
+  .btn-primary:last-child {
+    margin-right: 0;
+  }
+
+  /* Existing styles */
+
+.btn-primary {
+    color: white;
+    background-color: #071571; /* Bootstrap primary color */
+    border: none;
+    padding: 45px 20px; /* Adjust the padding for button size */
+    margin-top: 50px;
+    border-radius: 15px; /* Adjust the border-radius for curved edges */
+    margin-right: 20px; /* Adjust the distance between buttons */
+    transition: background-color 0.3s; /* Add a smooth transition effect */
+}
+
+/* Apply the margin-right to all buttons except the last one to avoid extra space */
+.btn-primary:last-child {
+    margin-right: 0;
+}
+
+/* Button click effect */
+.btn-primary:active {
+    background-color: #5a2f0b; /* Darken the color when the button is clicked */
+}
