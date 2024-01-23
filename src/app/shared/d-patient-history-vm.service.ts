@@ -13,6 +13,6 @@ historyList:DPatientHistoryVM[]; //For patient history list
 
   PatientHistory(patientId: number):Observable<DPatientHistoryVM[]>
   {
-return this.httpClient.get<DPatientHistoryVM[]>(environment.apiUrl+"api/Doctor/"+patientId);
+return this.httpClient.get<DPatientHistoryVM[]>(environment.apiUrl+"/api/Doctor/"+patientId);
   }
 }

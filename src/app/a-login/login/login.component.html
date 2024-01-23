@@ -1,18 +1,19 @@
-<h1>login workd</h1>
+
 
 <div class="container">
-    <h2>User Login</h2>
+    <h2>Maple Hospital Staff Login</h2>
     <hr>
     <form [formGroup]="loginForm" class="formControl" (ngSubmit)="LoginCredentials()">
         <!-- username -->
 
     <div>
-    <p>
+    <p >
         <label for="UserName" class="form-label">User Name</label>
+        <br>
         <input type="text" placeholder="Enter username" name="UserName" formControlName="UserName" class="form-control" minlength="3" [ngClass]=
         "{'is-invaild':formControls.UserName.touched && formControls.UserName.invalid}">
     </p>
-
+<br>
     </div>
 
     <div *ngIf="isSubmitted && formControls.UserName.errors">
@@ -28,7 +29,8 @@
 
     <div>
         <p>
-            <label for="Password" class="form-label">User Name</label>
+            <label for="Password" class="form-label">Password</label>
+            <br>
             <input type="text" placeholder="Enter Password" name="Password" formControlName="Password" class="form-control" minlength="3" [ngClass]=
             "{'is-invaild':formControls.Password.touched && formControls.Password.invalid}">
         </p>
@@ -45,7 +47,7 @@
 
      <!--Login button  -->
 
-     <button type="submit" class="btn btn-primary">Login
+     <button type="submit" class="btn btn-success">Login
 
      </button>
 

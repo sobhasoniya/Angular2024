@@ -12,6 +12,6 @@ export class DPatientDetailsVMService {
   constructor(private httpClient:HttpClient) { }
 
   GetPatientDetails(appointmentId:number):Observable<any>{
-    return this.httpClient.get(environment.apiUrl+"api/Doctor/GetPatientView?appointmentId="+appointmentId);
+    return this.httpClient.get(environment.apiUrl+"/api/Doctor/GetPatientView?appointmentId="+appointmentId);
   }
 }
