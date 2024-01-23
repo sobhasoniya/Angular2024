@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:'a-lab',component:LabComponent,
   loadChildren:()=>import('./a-lab/a-lab.module').then(x=>x.ALabModule)
   },
-  {path:'a-login',component:LoginComponent,
+  {path:'',component:LoginComponent,
   loadChildren:()=>import('./a-login/a-login.module').then(x=>x.ALoginModule)
   },
    {path:'a-medicine',component:MedicineComponent,
