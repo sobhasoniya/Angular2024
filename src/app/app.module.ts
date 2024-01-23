@@ -24,9 +24,12 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
+
     FormsModule,
     BrowserAnimationsModule,  
     Ng2SearchPipeModule,
+     ReactiveFormsModule,
+
 
     ToastrModule.forRoot( {timeOut:10000,positionClass:'toast-top-right',preventDuplicates:true}),
 
