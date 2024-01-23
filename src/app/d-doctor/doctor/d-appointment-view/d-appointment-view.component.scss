@@ -1,0 +1,63 @@
+
+body {
+  background-color: #f8f9fa;
+}
+
+h3 {
+  text-align: left;
+  color: #1a1a1a;
+  margin-top: 20px;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+
+h2 {
+  color: #1a1a1a;
+  margin-top: 20px;
+  margin-left: 50%;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+
+.table {
+  width: 150%;
+  margin-top: 20px;
+  margin-left: 2%;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(47, 79, 79, 0.614);
+}
+
+.table thead {
+  background-color: darkslategrey;
+  color: #ffffff;
+}
+
+.table th,
+.table td {
+  text-align: center;
+}
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.details {
+  color: #ffffff;
+  background-color: #343a40;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.footer {
+  margin-top: 20px; /* Adjust the top margin as needed */
+  margin-left: 40%;
+}
+
+/* Style for pagination controls */
+pagination-controls {
+  display: inline-block;
+  margin-top: 10px; /* Adjust the top margin for pagination controls */
+  color: darkslategrey;
+}
