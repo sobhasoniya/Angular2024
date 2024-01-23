@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ToastrModule } from 'ngx-toastr';
+import{HttpClientModule} from'@angular/common/http'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     ToastrModule.forRoot( {timeOut:10000,positionClass:'toast-top-right',preventDuplicates:true}),
     NgxPaginationModule,
-    Ng2SearchPipeModule  
+    Ng2SearchPipeModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

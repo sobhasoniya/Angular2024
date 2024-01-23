@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="header">
+        <br>
+        <div class="form-control">
+            <input class="form-control" type="text" placeholder="Search Text Here..."
+            [(ngModel)]="filter">
+        </div>
+        
+        <a [routerLink]="['../add-staff']" class="btn btn-outline-secondary" style="float: right; margin-bottom: 20px;" >Add Employee</a>
+    </div>
+
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>StaffId</th>
+            <th>StaffName</th>
+            <th>StaffDob</th>
+            <th>StaffGender</th>
+            <th> StaffAddress</th>
+            <th>StaffBloodgroup</th>
+            <th>StaffJoindate</th>
+            <th>StaffSalary</th>
+            <th> StaffMobieno</th>
+            <th>EMail</th>
+            <th>Qualification</th>
+            <th>Department</th>
+            <th> SpecializationId</th>
+            <th>SpecializationName</th>
+            <th>RoleName</th>
+            <th>UserName</th>
+            <th>Password</th>
+            <th>DepartmentId</th>
+            <th>QualificationId</th>
+            <th>RoleId</th>
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sta of staffService.staffdetailsviewmodel| filter:filter " [class.disabled-row]="isStaffDisabled(sta.StaffId)"  >
+            <td>{{sta.StaffId}}</td>
+            <td>{{sta.FullName}}</td>
+            <td>{{sta.Dob}}</td>
+            <td>{{sta.Gender}}</td>
+            <td>{{sta.Address}}</td>
+            <td>{{sta.BloodGroup}}</td>
+            <td>{{sta.JoiningDate}}</td> 
+            <td>{{sta.Salary}}</td>
+            <td>{{sta.MobileNo}}</td>
+            <td>{{sta.Email}}</td> 
+            <td>{{sta.Qualification}}</td>
+            <td>{{sta.DepartmentName}}</td>
+            <td>{{sta.SpecializationId}}</td> 
+            <td>{{sta.Specialization}}</td>
+            <td>{{sta.RoleName}}</td>
+            <td>{{sta.UserName}}</td> 
+            <td>{{sta.Password}}</td>
+            <td>{{sta.DepartmentId}}</td>
+            <td>{{sta.QualificationId}}</td>
+            <td>{{sta.RoleId}}</td> 
+
+            <td>
+                <button class="btn btn-sm btn-outline-primary " (click)="updateLabTests(lab.TestId)">Edit</button>;
+                <button class="btn btn-sm btn-outline-warning" (click)="toggleDisable(sta.StaffId)">Disable</button>
+                
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
