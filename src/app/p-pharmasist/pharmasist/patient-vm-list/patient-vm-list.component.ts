@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PPharmacistViewModel } from 'src/app/shared/p-pharmacist-view-model';
 import { PPharmacistViewModelService } from 'src/app/shared/p-pharmacist-view-model.service'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,8 +22,11 @@ export class PatientVMListComponent implements OnInit {
   dialog:any;
 
 
-  constructor(public PPharmacistViewModelService: PPharmacistViewModelService) { }
-
+  constructor(
+    public PPharmacistViewModelService: PPharmacistViewModelService,
+    private router: Router
+  ) { }
+  
   ngOnInit(): void {
     this.PPharmacistViewModelService.BindListpatients();
   }
@@ -33,11 +37,17 @@ export class PatientVMListComponent implements OnInit {
   }
 
   closePrintPopup(): void {
-    const printDialog = this.dialog.nativeElement;
-    if ('close' in printDialog) {
-      printDialog.close();
-    }
+    this.viewClicked = false;
+    //this.listPatientRecord = []; 
+    this.dialog.nativeElement.close();
+     //alert("hai") 
+    
   }
+
+  goToHome(): void {
+    this.router.navigate(['p-pharmacist/home']);
+  }
+  
   onClickBack(): void {
     this.viewClicked = false;
     this.listPatientRecord = [];
