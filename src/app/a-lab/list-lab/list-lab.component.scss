@@ -1,0 +1,45 @@
+.container {
+    margin: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    width: 300px;
+    margin-right: 20px;
+  }
+  
+  .table {
+    width: 100%;
+  }
+  
+  .btn-outline-secondary {
+    color: #6c757d;
+    background-color: transparent;
+    background-image: none;
+    border-color: #6c757d;
+  }
+  
+  .btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+  .btn-outline-danger {
+    color: #721c24;
+    background-color: transparent;
+    background-image: none;
+    border-color: #721c24;
+  }
+  
+  .btn-outline-danger:hover {
+    color: #fff;
+    background-color: #721c24;
+    border-color: #721c24;
+  }
