@@ -40,7 +40,6 @@ public medicineQuantity: number = 0;
   let addId=this.diagnosisService.formData.DiagnosisId;
   if(addId==0 || addId==null)
   {
-    alert(addId);
     console.log(form.value);
     this.InsertDiagnosis(form);
   }

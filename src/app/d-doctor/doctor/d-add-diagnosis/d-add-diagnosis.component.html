@@ -1,8 +1,12 @@
 <div class="form-box">
 
+
   <h5>Doctor Prescriptions</h5>
 <form name="empForm" #addForm="ngForm" autocomplete="false" (ngSubmit)="OnSubmit(addForm)" class="container mt-5">
   <div class="form-group">
+
+    <input name="AppointmentId" type="hidden" [(ngModel)]="diagnosisService.formData.AppointmentId" [value]="AppointmentID">
+
     <label for="Symptoms">Symptoms</label>
     <input name="Symptoms" #Symptoms="ngModel" [(ngModel)]="diagnosisService.formData.Symptoms"
       class="form-control" placeholder="Enter Symptoms" minlength="3" required
