@@ -26,4 +26,10 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['d-doctor/listAppointments']);
     }
 
+    LogOut()
+  {
+      console.log("Logging out" );
+      this.router.navigate(['']);
+    }
+
   }
