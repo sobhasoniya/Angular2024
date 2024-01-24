@@ -1,14 +1,34 @@
+
 <div class="card">
   <br>
   <h3>Patient Details</h3>
   <br>
+  <br>
   <!-- <h5>ID: {{patient.AppointmentId}}</h5> -->
-  <h5>Patient Name:    {{patient.PatientName}}</h5>
-<h5>Gender:       {{patient.Gender}}</h5>
-<h5>Age:          {{patient.PatientAge}}</h5>
-<h5>Blood Group:  {{patient.BloodGroup}}</h5>
-<h5>Phone Number: {{patient.PhNo}}</h5>
+  <table class="patienDetails">
+    <tr>
+      <td><h5>Patient Name:</h5></td>
+      <td><h5>: {{patient.PatientName}}</h5></td>
+    </tr>
+    <tr>
+      <td><h5>Gender:</h5></td>
+      <td><h5>: {{patient.Gender}}</h5></td>
+    </tr>
+    <tr>
+      <td><h5>Age</h5></td>
+      <td><h5>: {{patient.PatientAge}}</h5></td>
+    </tr>
+    <tr>
+      <td><h5>Blood Group:</h5></td>
+      <td><h5>: {{patient.BloodGroup}}</h5></td>
+    </tr>
+    <tr>
+      <td><h5>Phone Number:</h5></td>
+      <td><h5>: {{patient.PhNo}}</h5></td>
+    </tr>
+  </table>
 
+<br><br><br>
   <!-- <h5>Appointment Status: {{patient.CheckupStatus}}</h5> -->
   <div class="button-container">
     <button class="btn btn-dark" (click)="AppointmentListView()">Back</button>
@@ -16,3 +36,4 @@
     <button class="history" (click)="PatientHistory(patient.PatientId)">Patient History</button>
   </div>
 </div>
+

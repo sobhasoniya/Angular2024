@@ -1,0 +1,30 @@
+/* styles.scss */
+
+.form-container {
+  width:70%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+.btn-back {
+  margin-bottom: 10px;
+}
+
+.table-container {
+  margin-top: 20px;
+}
+
+/* Optional: Style for the 'Re-Order' button */
+.btn-reorder {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+/* Optional: Highlight low stock quantity in red */
+td.low-stock {
+  color: red;
+}

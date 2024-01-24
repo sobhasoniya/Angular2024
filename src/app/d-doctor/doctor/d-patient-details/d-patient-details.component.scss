@@ -3,20 +3,30 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(47, 79, 79, 0.545);
-  margin-left: 28%;
-  width: 70%; /* Adjust the width as needed */
+  margin-left: 30%;
+  width: 45%; /* Adjust the width as needed */
+margin-top: 5%;
 }
 
 
 h3, h5 {
-  margin: 10px 0;
+
   text-align: left;
   margin-left: 34%;
+  font-size: 130%;
+  font-weight: bold;
+  font-family:Georgia, 'Times New Roman', Times, serif
 }
 
-h5 {
-  padding-right: 20px; /* Adjust the padding value as needed */
+
+h3{
+  font-size: 200%;
 }
+td {
+  padding: 5px;
+  width: 5%; /* Adjust the width as needed */
+}
+
 
 
 .button-container {

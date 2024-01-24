@@ -11,7 +11,8 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add-medicine.component.scss']
 })
 export class AddMedicineComponent implements OnInit {
-
+  viewClicked: boolean = false;
+  listPatientRecord = [];
   constructor(
     public medicineService:MedicinesService,
     private router:Router,
@@ -21,7 +22,13 @@ export class AddMedicineComponent implements OnInit {
     this.medicineService.BindListMedicine();
     this.medicineService.formData=new Medicines();
   }
+  goBack():void{
+    this.viewClicked = false;
+    this.listPatientRecord = [];
 
+    // Navigate back to the home page
+    this.router.navigate(['a-medicine/list-medicine']);
+  }
 
   onSubmit(form:NgForm)
   {

@@ -8,33 +8,40 @@ h3 {
   color: #1a1a1a;
   margin-top: 20px;
   font-family: 'Times New Roman', Times, serif;
-
+font-size: 200%;
+font-weight: bold;
 }
 
 h2 {
   color: #1a1a1a;
   margin-top: 20px;
-  margin-left: 47%;
+  text-align: center;
   font-family: 'Times New Roman', Times, serif;
   font-weight: bold;
+  font-size: 300%;
 }
 
 .table {
-  width: 115%;
+  width: 70%;
   margin-top: 20px;
   margin-left: 4%;
   background-color: #ffffff;
   box-shadow: 0 4px 8px rgba(47, 79, 79, 0.614);
+  align-items: center;
 }
 
 .table thead {
   background-color: darkslategrey;
   color: #ffffff;
+  font-size: 95%;
+  line-height: 200%;
 }
 
 .table th,
 .table td {
   text-align: center;
+  font-size: 150%;
+  line-height: 200%;
 }
 
 .footer {
@@ -51,17 +58,40 @@ h2 {
 }
 
 .footer {
-  margin-top: 20px; /* Adjust the top margin as needed */
-  margin-left: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Style for pagination controls */
+
 pagination-controls {
   display: inline-block;
-  margin-top: 10px; /* Adjust the top margin for pagination controls */
+  margin-top: 10px;
   color: darkslategrey;
+  font-size: 120%;
 }
 
 .form-control{
-  margin-left: 10%;
+  margin-left: 22%;
+  width:60%;
+background-color: rgba(47, 79, 79, 0.116);
 }
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-controls ::ng-deep  {
+  background-color: darkslategrey;
+}
+
+:host ::ng-deep .ngb-pagination-page {
+  background-color: darkslategrey; /* Replace with the desired background color */
+}
+
+button{
+  font-size: 90%;
+}
+

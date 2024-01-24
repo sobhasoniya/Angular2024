@@ -1,3 +1,4 @@
+<div class="form-container">
 <div class="form-control">
     <input class="form-control" type="text" placeholder="search text here..." [(ngModel)]="filter">
 </div><br>
@@ -12,11 +13,11 @@
             <th>GenericName</th>
             <th>CompanyName</th>
             <th>StockQuantity</th>
-            <th>UnitPrice</th>            
+            <th>UnitPrice</th>
             <th>Action</th>
 
         </tr>
-        
+
     </thead>
     <tbody>
         <tr *ngFor="let med of medicinesService.medicine|filter:filter">
@@ -29,11 +30,12 @@
             <td>{{med.UnitPrice}}</td>
             <td>
                 <button class = "btn btn-info" (click)="onClickReorder()">Re-Order</button>
-                
+
 
             </td>
-            
+
 
         </tr>
     </tbody>
 </table>
+</div>

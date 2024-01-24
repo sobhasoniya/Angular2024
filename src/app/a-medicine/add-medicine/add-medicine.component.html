@@ -1,7 +1,7 @@
-<form name="medform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+<form name="medform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)" class="form-container">
 
 
-    <input  name="MedicineId" [(ngModel)]="medicineService.formData.MedicineId">
+    <input  type="hidden" name="MedicineId" [(ngModel)]="medicineService.formData.MedicineId">
 
 
 
@@ -20,7 +20,7 @@
     <br>
 
 
-   
+
 
 
     <div class="form-grup">
@@ -114,3 +114,4 @@
 
 
 </form>
+<button class="btn btn-dark "style="float: left; margin-left: 0px;"   (click)="goBack()">Back</button>
