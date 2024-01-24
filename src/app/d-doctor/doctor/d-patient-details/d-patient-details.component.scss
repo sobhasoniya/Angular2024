@@ -1,0 +1,47 @@
+.card {
+  background-color: rgba(47, 79, 79, 0.036);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(47, 79, 79, 0.545);
+  margin-left: 15%;
+  width: 125%; /* Adjust the width as needed */
+}
+
+
+h3, h5 {
+  margin: 10px 0;
+  text-align: left;
+  margin-left: 34%;
+}
+
+h5 {
+  padding-right: 20px; /* Adjust the padding value as needed */
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.listView {
+  background-color: #007bff;
+}
+
+.diagnosis {
+  background-color: #28a745;
+}
+
+.history {
+  background-color: #6c757d;
+}
