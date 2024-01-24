@@ -1,0 +1,195 @@
+<!-- Import necessary Angular modules in your component -->
+<!-- Example: import { FormsModule } from '@angular/forms'; -->
+
+<!-- Add FormsModule to your module's imports array -->
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form name="patientform" #form="ngForm" autocomplete="false" (ngSubmit)="onSubmit(form)" class="my-4">
+          <input type="hidden" name="PatientId" [(ngModel)]="patientsServices.formData.PatientId">
+  
+          <div class="form-group">
+            <label for="PatientName">Patient Name</label>
+            <input
+              name="PatientName"
+              #PatientName="ngModel"
+              [(ngModel)]="patientsServices.formData.PatientName"
+              class="form-control"
+              placeholder="Enter full name"
+              minlength="3"
+              maxlength="25"
+              required
+              [ngClass]="{'is-invalid': PatientName.touched && PatientName.invalid}"
+            />
+            <div class="validation-error text-danger" *ngIf="PatientName.touched && PatientName.invalid">
+              Patient Name is required and must be between 3 and 25 characters.
+            </div>
+          </div>
+          <br>
+
+
+          <div class="form-group">
+            <label for="RegisterNo">Register Number</label>
+            <input
+              name="RegisterNo"
+              #RegisterNo="ngModel"
+              [(ngModel)]="patientsServices.formData.RegisterNo"
+              class="form-control"
+              placeholder="Enter Register Number"
+              required
+              [ngClass]="{'is-invalid': RegisterNo.touched && RegisterNo.invalid}"
+            />
+            <div class="validation-error text-danger" *ngIf="RegisterNo.touched && RegisterNo.invalid">
+              Register Number is required.
+            </div>
+          </div>
+          <br>
+    
+          <div class="form-group">
+            <label for="PatientAddrs">Patient Address</label>
+            <input
+              name="PatientAddrs"
+              #PatientAddrs="ngModel"
+              [(ngModel)]="patientsServices.formData.PatientAddrs"
+              class="form-control"
+              placeholder="Enter Patient Address"
+              minlength="3"
+              maxlength="25"
+              required
+              [ngClass]="{'is-invalid': PatientAddrs.touched && PatientAddrs.invalid}"
+            />
+            <div class="validation-error text-danger" *ngIf="PatientAddrs.touched && PatientAddrs.invalid">
+              Patient Address is required and must be between 3 and 25 characters.
+            </div>
+          </div>
+
+          <br>
+    
+          <div class="form-group">
+            <label for="PhNo">Contact</label>
+            <input
+              name="PhNo"
+              #PhNo="ngModel"
+              [(ngModel)]="patientsServices.formData.PhNo"
+              class="form-control"
+              placeholder="Enter Contact"
+              pattern="[0-9]{10}"
+              required
+              [ngClass]="{'is-invalid': PhNo.touched && PhNo.invalid}"
+            />
+            <div class="validation-error text-danger" *ngIf="PhNo.touched && PhNo.invalid">
+              Contact is required and must be exactly 10 digits.
+            </div>
+          </div>
+
+          <br>
+    
+          <div class="form-group">
+            <label for="PatientDob">Date of Birth</label>
+            <input
+              type="date"
+              name="PatientDob"
+              #PatientDob="ngModel"
+              [(ngModel)]="patientsServices.formData.PatientDob"
+              class="form-control"
+              required
+              [ngClass]="{'is-invalid': PatientDob.touched && PatientDob.invalid}"
+            />
+            <div class="validation-error text-danger" *ngIf="PatientDob.touched && PatientDob.invalid">
+              Date of Birth is required and must be a past date.
+            </div>
+          </div>
+
+          <br>
+    
+          <div class="form-group">
+            <label for="PatientGender">Gender</label>
+            <select
+              name="PatientGender"
+              #PatientGender="ngModel"
+              [(ngModel)]="patientsServices.formData.PatientGender"
+              class="form-control"
+              required
+              [ngClass]="{'is-invalid': PatientGender.touched && PatientGender.invalid}"
+            >
+              <option value="" disabled>Choose Gender</option>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+             
+            </select>
+            <div class="validation-error text-danger" *ngIf="PatientGender.touched && PatientGender.invalid">
+              Gender is required.
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="BloodGrp">Blood Group</label>
+            <select
+              name="BloodGrp"
+              #BloodGrp="ngModel"
+              [(ngModel)]="patientsServices.formData.BloodGrp"
+              class="form-control"
+              required
+              [ngClass]="{'is-invalid': BloodGrp.touched && BloodGrp.invalid}"
+            >
+              <option value="" disabled>Select Blood Group</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+            <div class="validation-error text-danger" *ngIf="BloodGrp.touched && BloodGrp.invalid">
+              Blood Group is required.
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="PatientEmail">Email ID</label>
+            <input
+              type="email"
+              name="PatientEmail"
+              #PatientEmail="ngModel"
+              [(ngModel)]="patientsServices.formData.PatientEmail"
+              class="form-control"
+              placeholder="Enter Email ID"
+              required
+              [ngClass]="{'is-invalid': PatientEmail.touched && PatientEmail.invalid}"
+            />
+            <div class="validation-error text-danger" *ngIf="PatientEmail.touched && PatientEmail.invalid">
+              Email ID is required and must be a valid email address.
+            </div>
+          </div>
+          <br>
+    
+          <div class="form-group">
+            <label for="PatientStatus">Patient Status</label>
+            <select
+              name="PatientStatus"
+              #PatientStatus="ngModel"
+              [(ngModel)]="patientsServices.formData.PatientStatus"
+              class="form-control"
+              required
+              [ngClass]="{'is-invalid': PatientStatus.touched && PatientStatus.invalid}"
+            >
+              <option value="" disabled>Choose Patient Status</option>
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+            <div class="validation-error text-danger" *ngIf="PatientStatus.touched && PatientStatus.invalid">
+              Patient Status is required.
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-primary btn-block">Submit</button>
+          </div>
+          <div class="mt-3">
+            <a class="btn btn-secondary" (click)="backtoPatientList()">Back</a>
+        </div>
+        </form>

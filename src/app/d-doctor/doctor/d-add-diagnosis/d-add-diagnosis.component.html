@@ -1,0 +1,110 @@
+<div class="form-box">
+
+
+  <h5>Doctor Prescriptions</h5>
+<form name="empForm" #addForm="ngForm" autocomplete="false" (ngSubmit)="OnSubmit(addForm)" class="container mt-5">
+  <div class="form-group">
+
+    <input name="AppointmentId" type="hidden" [(ngModel)]="diagnosisService.formData.AppointmentId" [value]="AppointmentID">
+
+    <label for="Symptoms">Symptoms</label>
+    <input name="Symptoms" #Symptoms="ngModel" [(ngModel)]="diagnosisService.formData.Symptoms"
+      class="form-control" placeholder="Enter Symptoms" minlength="3" required
+      [ngClass]="{'is-invalid': Symptoms.touched && Symptoms.invalid}">
+    <div class="validation-error" *ngIf="Symptoms.touched && Symptoms.invalid">
+      <div>Symptoms Required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="Diagnosis1">Diagnosis</label>
+    <input name="Diagnosis1" #Diagnosis="ngModel" [(ngModel)]="diagnosisService.formData.Diagnosis1"
+      class="form-control" placeholder="Enter the Diagnosis" minlength="3" required
+      [ngClass]="{'is-invalid': Diagnosis.touched && Diagnosis.invalid}">
+    <div class="validation-error" *ngIf="Diagnosis.touched && Diagnosis.invalid">
+      <div>Diagnosis is Required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="PrescribedMedicineId">Medicine</label>
+    <select name="PrescribedMedicineId" id="PrescribedMedicineId" #PrescribedMedicineId="ngModel" [(ngModel)]="diagnosisService.formData.PrescribedMedicineId"
+      class="form-control" required
+      [ngClass]="{'is-invalid': PrescribedMedicineId.touched && PrescribedMedicineId.invalid}">
+      <option value="0" disabled>Choose Medicine</option>
+      <option *ngFor="let meds of diagnosisService.medicines" [value]="meds.MedicineId">{{meds.MedicineName}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="Dosage">Dosage</label>
+    <select name="Dosage" id="Dosage" #Dosage="ngModel" [(ngModel)]="diagnosisService.formData.Dosage"
+      class="form-control" required
+      [ngClass]="{'is-invalid': Dosage.touched && Dosage.invalid}" (ngModelChange)="calculateMedicineQuantity()">
+      <option value="0" disabled>Choose Dosage</option>
+      <option *ngFor="let dosage of dosages" [value]="dosage">{{ dosage }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="DosageDays">Dosage Duration (in days)</label>
+    <div class="input-group">
+      <input type="number" name="DosageDays" id="DosageDays" #DosageDays="ngModel"
+        [(ngModel)]="diagnosisService.formData.DosageDays" class="form-control" required
+        [ngClass]="{'is-invalid': DosageDays.touched && DosageDays.invalid}" (ngModelChange)="calculateMedicineQuantity()">
+      <div class="input-group-append">
+        <span class="input-group-text">days</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="MedicineQuantity">Medicine Quantity</label>
+    <div class="input-group">
+      <input [value]="medicineQuantity" type="number" disabled="true" name="MedicineQuantity" id="MedicineQuantity" #MedicineQuantity="ngModel"
+        [(ngModel)]="diagnosisService.formData.MedicineQuantity" class="form-control" required
+        [ngClass]="{'is-invalid': MedicineQuantity.touched && MedicineQuantity.invalid}">
+      <div class="input-group-append">
+        <span class="input-group-text">units</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="LabTestId">Lab Test</label>
+    <select name="LabTestId" id="LabTestId" #LabTestId="ngModel" [(ngModel)]="diagnosisService.formData.LabTestId"
+      class="form-control" required
+      [ngClass]="{'is-invalid': LabTestId.touched && LabTestId.invalid}">
+      <option value="0" disabled>Choose Lab Test</option>
+      <option *ngFor="let tests of diagnosisService.labTests" [value]="tests.TestId">{{tests.TestName}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="LabNote">Lab Note</label>
+    <input name="LabNote" #LabNote="ngModel"
+      [(ngModel)]="diagnosisService.formData.LabNote" class="form-control" placeholder="Enter the Lab Note"
+      minlength="3" maxlength="30" [ngClass]="{'is-invalid': LabNote.touched && LabNote.invalid}">
+  </div>
+
+  <input name="LabTestStatus" type="hidden" [(ngModel)]="diagnosisService.formData.LabTestStatus" [value]="DefaultLabTestStatus">
+
+  <div class="form-group">
+    <label for="Note">Notes (if any)</label>
+    <input name="Note" #Note="ngModel"
+      [(ngModel)]="diagnosisService.formData.Note" class="form-control" placeholder="Enter the Note"
+     [ngClass]="{'is-invalid': Note.touched && Note.invalid}">
+  </div>
+
+
+  <div class="form-group">
+    <button type="submit" [disabled]="!(addForm.valid && addForm.dirty)"
+      class="btn btn-lg btn-primary form-control">Complete Diagnosis</button>
+  </div>
+
+  <div>
+    <button class="btn btn-dark" (click)="ViewPatientDetails()">Back</button>
+  </div>
+
+</form>
+</div>
