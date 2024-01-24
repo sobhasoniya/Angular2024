@@ -79,7 +79,7 @@ LoginCredentials()
         }
         else if(response.rId==4)
         {
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('l-laboratory/list');
         }
         else if(response.rId==5)
         {
