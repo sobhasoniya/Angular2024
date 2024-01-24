@@ -21,7 +21,7 @@ export class RAppointmentViewModelService {
   constructor(private httpClient: HttpClient) { }
   //Get All Departments
   BindDeparment(){
-    this.httpClient.get(environment.apiUrl+'api/RAppointments/List').toPromise().then(
+    this.httpClient.get(environment.apiUrl+'/api/RAppointments/List').toPromise().then(
       response=>{
         this.departments=response as Departments[];
         console.log(this.departments);
@@ -31,15 +31,15 @@ export class RAppointmentViewModelService {
 
   //Get All Specialization By Id
   BindSpecializationByDepartmentId(deparmentId:number):Observable<any>{
-    return this.httpClient.get(environment.apiUrl+'api/RAppointments/GetSpecializationByDepartmentId/'+deparmentId);
+    return this.httpClient.get(environment.apiUrl+'/api/RAppointments/GetSpecializationByDepartmentId/'+deparmentId);
   }
    //Bind All Doctors By SpecializationId
    BindDoctorBySpecializationId(specializationId:number):Observable<any>{
-    return this.httpClient.get(environment.apiUrl+'api/RAppointments/GetDoctorBySpecializationId/'+specializationId);
+    return this.httpClient.get(environment.apiUrl+'/api/RAppointments/GetDoctorBySpecializationId/'+specializationId);
   }
 
   //To Add Appointment and Bill 
   insertAppointmentandBill(appointmentViewmodel:RAppointmentViewModel,isNewPatient:boolean):Observable<any>{
-    return this.httpClient.post(environment.apiUrl+'api/RAppointments/BookAppointment',appointmentViewmodel,{params:{isNewPatient:isNewPatient.toString()}});
+    return this.httpClient.post(environment.apiUrl+'/api/RAppointments/BookAppointment',appointmentViewmodel,{params:{isNewPatient:isNewPatient.toString()}});
   }
 }
