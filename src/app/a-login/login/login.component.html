@@ -1,1 +1,60 @@
-<p>login works!</p>
+
+
+<div class="container">
+    <h2>Maple Hospital Staff Login</h2>
+    <hr>
+    <form [formGroup]="loginForm" class="formControl" (ngSubmit)="LoginCredentials()">
+        <!-- username -->
+
+    <div>
+    <p >
+        <label for="UserName" class="form-label">User Name</label>
+        <br>
+        <input type="text" placeholder="Enter username" name="UserName" formControlName="UserName" class="form-control" minlength="3" [ngClass]=
+        "{'is-invaild':formControls.UserName.touched && formControls.UserName.invalid}">
+    </p>
+<br>
+    </div>
+
+    <div *ngIf="isSubmitted && formControls.UserName.errors">
+
+        <div *ngIf="formControls.UserName.errors" style="color:red; text-align: left;">
+           User Name is required
+        </div>
+
+    </div>
+
+
+    <!-- Password -->
+
+    <div>
+        <p>
+            <label for="Password" class="form-label">Password</label>
+            <br>
+            <input type="text" placeholder="Enter Password" name="Password" formControlName="Password" class="form-control" minlength="3" [ngClass]=
+            "{'is-invaild':formControls.Password.touched && formControls.Password.invalid}">
+        </p>
+
+        </div>
+
+        <div *ngIf="isSubmitted && formControls.Password.errors">
+
+            <div *ngIf="formControls.Password.errors" style="color:red; text-align: left;">
+               User Name is required
+            </div>
+
+        </div>
+
+     <!--Login button  -->
+
+     <button type="submit" class="btn btn-success">Login
+
+     </button>
+
+     <div *ngIf="error" style="color:red; text-align: left;">
+        {{error}}
+     </div>
+
+
+    </form>
+    </div>

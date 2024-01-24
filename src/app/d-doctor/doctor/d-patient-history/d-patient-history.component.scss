@@ -1,0 +1,31 @@
+.form-box {
+  width:120%;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-header {
+  background-color: darkslategrey;
+  color: white;
+}
+
+.table-body tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.details {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.pagination-controls {
+  margin-top: 20px;
+}

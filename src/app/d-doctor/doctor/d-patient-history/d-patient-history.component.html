@@ -1,0 +1,42 @@
+<div class="form-box">
+  <h2 class="display-4 text-center">Patient History</h2>
+  <br>
+  <table class="table table-hover text-center">
+    <thead class="table-header">
+      <tr>
+        <th>Date</th>
+        <th>Symptoms</th>
+        <th>Diagnosis</th>
+        <th>Medicine(s)</th>
+        <th>Lab Test(s)</th>
+        <th>Lab Result</th>
+        <th>Note</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody *ngIf="dpatientHistoryService.historyList && dpatientHistoryService.historyList.length > 0" class="table-body">
+      <tr *ngFor="let patients of dpatientHistoryService.historyList | filter: filter | paginate: { itemsPerPage: 5, currentPage: page }">
+        <td>{{patients.AppointmentDate}}</td>
+        <td>{{patients.Symptoms}}</td>
+        <td>{{patients.Diagnosis}}</td>
+        <td>{{patients.MedicineName}}</td>
+        <td>{{patients.LabTestName}}</td>
+        <td>{{patients.LabResult}}</td>
+        <td>{{patients.Note}}</td>
+        <td>{{patients.AppointmentId}}</td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="!dpatientHistoryService.historyList || dpatientHistoryService.historyList.length === 0">
+      <tr>
+        <td colspan="7">No Patient History Available</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="button-container">
+    <button class="btn btn-dark" (click)="ViewPatientDetails()">Back</button>
+  </div>
+  <br>
+  <div class="footer form-group" style="text-align: center;">
+    <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+  </div>
+</div>
