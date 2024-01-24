@@ -1,0 +1,83 @@
+<div class="invoice-container">
+    <div class="invoice-header">
+      <h1> BILL</h1>
+    </div>
+  
+    <div class="invoice-details">
+      <div class="section-header">
+        
+        <hr />
+      </div>
+      
+      <div class="detail-row">
+        <div class="label">REGISTER NUMBER :</div>
+        <div class="value">{{ bill_r.RegisterNo}}</div>
+      </div>
+      <div class="detail-row">
+        <div class="label">NAME :</div>
+        <div class="value">{{ bill_r.PatientName}}</div>
+      </div>
+      <div class="detail-row">
+        <div class="label">TOKEN NUMBER :</div>
+        <div class="value">{{ bill_r.TokenNo }}</div>
+      </div>
+      <div class="detail-row">
+        <div class="label">APPOINTMENT DATE :</div>
+        <div class="value">{{ bill_r.AppointmentDate | date:'yyyy-MM-dd' }}</div>
+      </div>
+      <div class="detail-row">
+        <div class="label">DOCTOR :</div>
+        <div class="value">{{ bill_r.FullName}}</div>
+      </div>
+      <div class="detail-row">
+        <div class="label">DEPARTMENT :</div>
+        <div class="value">{{ bill_r.DepartmentName}}</div>
+      </div>
+  
+      <!-- Use *ngIf to conditionally display the row -->
+      <div class="section-header" *ngIf="bill_r.RegistrationFee > 0">
+        
+        <hr />
+      </div>
+  
+      <div class="detail-row" *ngIf="bill_r.RegistrationFee > 0">
+        <div class="label">REGISTRATION FEES :</div>
+        <div class="value">{{ bill_r.RegistrationFee }}</div>
+      </div>
+      <div class="detail-row">
+        <div class="label">CONSULTATION FEES  :</div>
+        <div class="value">{{ bill_r.ConsultationFee }}</div>
+      </div>
+  
+      <div class="section-header">
+        <hr />
+      </div>
+  
+      <div class="detail-row">
+        <div class="label">CGST :</div>
+        <div class="value">{{ 0.09 * bill_r.RegistrationFee + 0.09 * bill_r.ConsultationFee | number:'1.2-2' }}</div>
+      </div>
+      <div class="detail-row">
+        <div class="label">SGST :</div>
+        <div class="value">{{ 0.09 * bill_r.RegistrationFee + 0.09 * bill_r.ConsultationFee | number:'1.2-2' }}</div>
+      </div>
+      <hr />
+  
+      <div class="detail-row">
+        <div class="label">GST :</div>
+        <div class="value">{{ (0.09 * bill_r.RegistrationFee + 0.09 * bill_r.ConsultationFee) * 2 | number:'1.2-2' }}</div>
+      </div>
+  
+      <div class="section-header">
+        <hr />
+      </div>
+  
+      <div class="detail-row">
+        <div class="label">TOTAL AMOUNT :</div>
+        <div class="value">{{ bill_r.TotalAmt }}</div>
+      </div>
+      <div class="back-button">
+        <button (click)="goBack()">Back</button>
+    </div>
+    </div>
+  </div>

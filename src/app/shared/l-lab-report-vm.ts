@@ -7,4 +7,5 @@ LowRange:string=null;
 HighRange:string=null;
 TestResult:string=null;
 Remarks:string=null;
+Price: number;
 }

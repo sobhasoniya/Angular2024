@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Records</title>
+  <!-- Include Bootstrap CSS (add the appropriate link to your project) -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Add any additional custom styles here */
+    body {
+      padding-top: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+    }
+
+    /* Ensure that text doesn't wrap and add ellipsis for long text */
+    .table th, .table td {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Center the table headings */
+    .table thead th {
+      text-align: center;
+    }
+
+    /* Style for action buttons */
+    .action-buttons button {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2 class="mb-8">PATIENT RECORDS</h2>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>ID</th>
+          <th>Register No</th>
+          <th>Patient Name</th>
+          <th>DOB</th>
+          <th>Address</th>
+          <th>Gender</th>
+          <th>Contact</th>
+          <th>Email ID</th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of patientsService.patients">
+          <td class="text-truncate">{{ p.PatientId }}</td>
+          <td class="text-truncate">{{ p.RegisterNo }}</td>
+          <td class="text-truncate">{{ p.PatientName }}</td>
+          <td class="text-truncate">{{ p.PatientDob | date:'yyyy-MM-dd' }}</td>
+          <td class="text-truncate">{{ p.PatientAddrs }}</td>
+          <td class="text-truncate">{{ p.PatientGender }}</td>
+          <td class="text-truncate">{{ p.PhNo }}</td>
+          <td class="text-truncate">{{ p.PatientEmail }}</td>
+          <td class="action-buttons">
+            <button class="btn btn-info" (click)="updatepatient(p.PatientId)" >Edit</button>
+            <!-- <button class="btn btn-outline-danger btn-sm">Disable</button> -->
+           
+
+            <button class="btn btn-secondary" (click)="detailsPatient(p.PatientId)">Details</button>
+            <button class="btn btn-secondary" (click)="bookAppointment(p.PatientId)">Book Appointment</button>
+          </td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div class="mt-3">
+      <a class="btn btn-secondary" (click)="goBack()">Back</a>
+  </div>
+    
+  </div>
+
+  <!-- Include Bootstrap JS and Popper.js (add the appropriate links to your project) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

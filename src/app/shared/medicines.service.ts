@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
+
 import { Medicines } from './medicines';
 import{HttpClient} from '@angular/common/http';
 import{environment} from 'src/environments/environment'
 import{Observable} from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class MedicinesService {
+
   medicine:Medicines[];
   formData:Medicines=new Medicines();
 
@@ -36,6 +39,8 @@ export class MedicinesService {
   updateMedicines(medicine:Medicines):Observable<any>{
     return this.httpClient.put(environment.apiUrl + "api/A_Medicine", medicine)
   }
+
+
 
 
 }

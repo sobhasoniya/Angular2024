@@ -1,0 +1,109 @@
+<!-- Uncomment the Back button -->
+<div class="form-control">
+    <input class="form-control" type="text" placeholder="search text here..." [(ngModel)]="filter">
+</div><br>
+
+<!-- Add Back button -->
+<button class="btn btn-info" (click)="onClickBack()">Back</button>
+
+<button class="btn btn-info" (click)="goToHome()">Home</button>
+
+
+<table class="table table-striped table-hover" *ngIf="!viewClicked">
+    <thead>
+        <tr>
+            
+            <th>RegisterNo</th>
+            <th>PatientName</th>
+            <th>PhoneNumber</th>
+            <th>PrescribedMedicine</th>
+            <th>Dosage</th>
+            <th>DosageDays</th>
+            <th>Quantity</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pat of PPharmacistViewModelService.patients | filter:filter">
+           
+            <td>{{pat.RegisterNo}}</td>
+            <td>{{pat.PatientName}}</td>
+            <td>{{pat.PhoneNumber}}</td>
+            <td>{{pat.PrescribedMedicine}}</td>
+            <td>{{pat.Dosage}}</td>
+            <td>{{pat.DosageDays}}</td>
+            <td>{{pat.Quantity}}</td>
+            <td>
+                <button class="btn btn-info" (click)="getViewPatient(pat)">view</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table table-striped table-hover" *ngIf="viewClicked">
+    <thead>
+        <tr>
+            <th>RegisterNo</th>
+            <th>PatientName</th>
+            <th>PhoneNumber</th>
+            <th>PrescribedMedicine</th>
+            <th>Dosage</th>
+            <th>DosageDays</th>
+            <th>Quantity</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pat of listPatientRecord">
+            <td>{{pat.RegisterNo}}</td>
+            <td>{{pat.PatientName}}</td>
+            <td>{{pat.PhoneNumber}}</td>
+            <td>{{pat.PrescribedMedicine}}</td>
+            <td>{{pat.Dosage}}</td>
+            <td>{{pat.DosageDays}}</td>
+            <td>{{pat.Quantity}}</td>
+            <td>
+                <button class="btn btn-info" (click)="dialog.showModal()">Generate Bill</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<dialog #dialog>
+    <div>
+        <h4>Patient Detail</h4>
+        <p>Date: {{ getCurrentDate() }}</p>
+        <p>Patient Name: {{ listPatientRecord[0]?.PatientName }}</p>
+    </div>
+    <div>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>PrescribedMedicine</th>
+                    <th>Quantity</th>
+                    <th>Unit Price (Rs.)</th>
+                    <th>GST (8%)(Rs.)</th>
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pat of listPatientRecord">
+                    <td>{{pat.PrescribedMedicine}}</td>                   
+                    <td>{{pat.Quantity}}</td>
+                    <td>{{350}}</td>
+                    <td>{{28}}</td>
+                    <td>{{378}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <!-- Close button -->
+        <button (click)="closePrintPopup()">Close</button>
+
+        
+        
+        <!-- Print button -->
+        <button (click)="printPharmacyBill()">Print</button>
+    </div>
+</dialog>
