@@ -15,6 +15,9 @@ import { LabReportGenerationService } from 'src/app/shared/lab-report-generation
 export class AddReportComponent implements OnInit {
   generatedReport: any;
   reportTable: any[] = [];
+  staffId:number=5001;
+  TestId:number=502;
+
 
   constructor(public lLabReportVMService:LLabReportVMService,
     public lLabTestsVMService:LLabTestsVMService,
@@ -24,25 +27,29 @@ export class AddReportComponent implements OnInit {
     public labreportgeneration:LabReportGenerationService)
  { }
 
-    
+
 
   ngOnInit(): void {
+    this.labreportgeneration.formData.AppointmentId=this.lLabTestsVMService.formData.AppointmentId;
+    this.labreportgeneration.formData.TestId=this.TestId;
+    this.labreportgeneration.formData.StaffId=this.staffId;
+
   }
 
 
- 
 
-onSubmit(form: NgForm){ 
+
+onSubmit(form: NgForm){
   this.lLabTestsVMService.formData.AppointmentId =0;
 
   let addId =this.labreportgeneration.formData.ReportId;
   if(addId ==0 || addId == null){
-    
+
     console.log(form.value);
     this.reportTable.push(form.value);
     this.InsertRecord(form);
   }
-  
+
 }
 
 
@@ -55,7 +62,7 @@ InsertRecord(form: NgForm){
       //alert
       this.toastr.success('added successFully','CMS App 2024');
       this.router.navigate(['l-laboratory/report'], { state: { data: this.generatedReport } });
-      
+
     },
     (error) => {
       console.error('Error inserting record:', error);
@@ -67,7 +74,7 @@ InsertRecord(form: NgForm){
 
 resetForm(form:NgForm){
   if(form!=null){
-   form.resetForm(); 
+   form.resetForm();
 
 }
 }
@@ -82,7 +89,7 @@ this.router.navigate(['/l-laboratory/list']);
 }
 
 
-  
-  
+
+
 
 }
