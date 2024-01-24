@@ -67,11 +67,11 @@ LoginCredentials()
         }
         else if(response.rId==1)
         {
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('a-home/');
         }
         else if(response.rId==2)
         {
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('r-appointment/home');
         }
         else if(response.rId==3)
         {
