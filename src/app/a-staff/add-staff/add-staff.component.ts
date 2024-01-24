@@ -12,7 +12,8 @@ import { StaffsService } from 'src/app/shared/staffs.service';
   styleUrls: ['./add-staff.component.scss']
 })
 export class AddStaffComponent implements OnInit {
-
+  viewClicked: boolean = false;
+  listPatientRecord = [];
   constructor(
     public staffService:AStaffVMService,
     public staffsService:StaffsService,
@@ -65,6 +66,14 @@ export class AddStaffComponent implements OnInit {
       }
     )
 
+  }
+
+  goBack():void{
+    this.viewClicked = false;
+    this.listPatientRecord = [];
+
+    // Navigate back to the home page
+    this.router.navigate(['a-staff/list-staff']);
   }
 
   UpdateRecord(form:NgForm)
