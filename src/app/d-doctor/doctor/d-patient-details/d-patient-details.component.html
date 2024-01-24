@@ -1,0 +1,18 @@
+<div class="card">
+  <br>
+  <h3>Patient Details</h3>
+  <br>
+  <!-- <h5>ID: {{patient.AppointmentId}}</h5> -->
+  <h5>Patient Name:    {{patient.PatientName}}</h5>
+<h5>Gender:       {{patient.Gender}}</h5>
+<h5>Age:          {{patient.PatientAge}}</h5>
+<h5>Blood Group:  {{patient.BloodGroup}}</h5>
+<h5>Phone Number: {{patient.PhNo}}</h5>
+
+  <!-- <h5>Appointment Status: {{patient.CheckupStatus}}</h5> -->
+  <div class="button-container">
+    <button class="btn btn-dark" (click)="AppointmentListView()">Back</button>
+    <button class="diagnosis" (click)="AddDiagnosis(patient.AppointmentId)">Add Diagnosis</button>
+    <button class="history" (click)="PatientHistory(patient.PatientId)">Patient History</button>
+  </div>
+</div>
