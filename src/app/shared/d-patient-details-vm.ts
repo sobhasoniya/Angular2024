@@ -6,4 +6,5 @@ PatientAge:number=0;
 BloodGroup:string =null;
 PhNo:number=0;
 CheckupStatus:string =null;
+PatientId:number=0;
 }
