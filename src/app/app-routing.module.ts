@@ -10,6 +10,7 @@ import { LLaboratoryModule } from './l-laboratory/l-laboratory.module';
 import { PharmasistComponent } from './p-pharmasist/pharmasist/pharmasist.component';
 import { AppointmentComponent } from './r-appointment/appointment/appointment.component';
 import { PatientComponent } from './r-patient/patient/patient.component';
+import { LaboratoryComponent } from './l-laboratory/laboratory/laboratory.component';
 
 
 const routes: Routes = [
@@ -29,7 +30,7 @@ const routes: Routes = [
   {path:'d-doctor',component:DoctorComponent,
   loadChildren:()=>import('./d-doctor/d-doctor.module').then(x=>x.DDoctorModule)
   },
-  {path:'l-laboratory',component:LLaboratoryModule,
+  {path:'l-laboratory',component:LaboratoryComponent,
   loadChildren:()=>import('./l-laboratory/l-laboratory.module').then(x=>x.LLaboratoryModule)
   },
   {path:'p-pharmacist',component:PharmasistComponent,

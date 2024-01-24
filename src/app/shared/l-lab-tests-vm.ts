@@ -4,4 +4,6 @@ PatientName:string=null;
 DoctorName:string=null;
 TestName:string=null;
 LabTestStatus:string=null;
+
+
 }
