@@ -1,0 +1,88 @@
+<form name="labform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+
+
+    <input  name="testId" [(ngModel)]="labService.formData.TestId">
+
+
+
+    <div class="form-grup">
+        <label style="margin-left: 10px ">Test Name</label>
+        <input name="TestName" #TestName="ngModel" [(ngModel)]="labService.formData.TestName"
+            class="form-control" placeholder="Enter the Test Name" minlength="3" maxlength="25" required
+            [ngClass]="{'is-invalid':TestName.touched && TestName.invalid}" style="margin-left: 10px ">
+
+
+        <div class="validation-error" *ngIf="TestName.touched && TestName.invalid">
+            <div>Test Name  Is Required</div>
+        </div>
+
+    </div>
+    <br>
+
+
+   
+
+
+    <div class="form-grup">
+        <label style="margin-left: 10px ">Low Range</label>
+        <input name="LowRange" #LowRange="ngModel" [(ngModel)]="labService.formData.LowRange" class="form-control"
+            placeholder="Enter LowRange" minlength="3" maxlength="25" required
+            [ngClass]="{'is-invalid':LowRange.touched && LowRange.invalid}" style="margin-left: 10px ">
+
+
+        <div class="validation-error" *ngIf="LowRange.touched && LowRange.invalid">
+            <div>LowRange Is Required</div>
+        </div>
+
+    </div>
+    <br>
+
+
+
+    <div class="form-grup">
+        <label style="margin-left: 10px ">High Range</label>
+        <input name="HighRange" #HighRange="ngModel" [(ngModel)]="labService.formData.HighRange" class="form-control"
+            placeholder="Enter HighRange" minlength="3" maxlength="25" required
+            [ngClass]="{'is-invalid':HighRange.touched && HighRange.invalid}" style="margin-left: 10px ">
+
+
+        <div class="validation-error" *ngIf="HighRange.touched && HighRange.invalid">
+            <div>HighRange Is Required</div>
+        </div>
+
+    </div>
+    <br>
+
+
+    <div class="form-grup">
+        <label style="margin-left: 10px ">Price</label>
+        <input name="Price" #Price="ngModel" [(ngModel)]="labService.formData.Price" class="form-control"
+            placeholder="Enter Price" minlength="3" maxlength="25" required
+            [ngClass]="{'is-invalid':Price.touched && Price.invalid}" style="margin-left: 10px ">
+
+
+        <div class="validation-error" *ngIf="Price.touched && Price.invalid">
+            <div>Price Is Required</div>
+        </div>
+
+    </div>
+    <br>
+
+   
+
+
+
+    <br>
+
+
+    <div class="form-group">
+        <button type="submit" [disabled]="!(form.valid && form.dirty)"
+            class="btn btn-sm btn-primary form-control">SUBMIT</button>
+    </div>
+
+
+
+
+
+
+</form>

@@ -13,5 +13,5 @@ QualificationId:number=0;
 DepartmentId:number=0;
 SpecializationId:number=0;
 RoleId:number=0;
-Email:string =null;
+Email:string ='';
 }
