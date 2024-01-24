@@ -10,9 +10,14 @@ import { LLaboratoryModule } from './l-laboratory/l-laboratory.module';
 import { PharmasistComponent } from './p-pharmasist/pharmasist/pharmasist.component';
 import { AppointmentComponent } from './r-appointment/appointment/appointment.component';
 import { PatientComponent } from './r-patient/patient/patient.component';
+import { HomeComponent } from './a-home/home/home.component';
 
 
 const routes: Routes = [
+
+  {path:'a-home',component:HomeComponent,
+  loadChildren:()=>import('./a-home/a-home.module').then(x=>x.AHomeModule)
+  },
 
   {path:'a-lab',component:LabComponent,
   loadChildren:()=>import('./a-lab/a-lab.module').then(x=>x.ALabModule)

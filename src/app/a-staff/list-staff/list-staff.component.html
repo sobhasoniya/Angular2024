@@ -22,11 +22,11 @@
             <th>StaffBloodgroup</th>
             <th>StaffJoindate</th>
             <th>StaffSalary</th>
-            <th> StaffMobieno</th>
-            <th>EMail</th>
+            <th>StaffMobieno</th>
+            <th>Email</th>
             <th>Qualification</th>
             <th>Department</th>
-            <th> SpecializationId</th>
+            <th>SpecializationId</th>
             <th>SpecializationName</th>
             <th>RoleName</th>
             <th>UserName</th>
@@ -39,7 +39,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let sta of staffService.staffdetailsviewmodel| filter:filter " [class.disabled-row]="isStaffDisabled(sta.StaffId)"  >
+        <tr *ngFor="let sta of staffService.staffdetailsviewmodel| filter:filter "   >
             <td>{{sta.StaffId}}</td>
             <td>{{sta.FullName}}</td>
             <td>{{sta.Dob}}</td>
@@ -62,8 +62,8 @@
             <td>{{sta.RoleId}}</td> 
 
             <td>
-                <button class="btn btn-sm btn-outline-primary " (click)="updateLabTests(lab.TestId)">Edit</button>;
-                <button class="btn btn-sm btn-outline-warning" (click)="toggleDisable(sta.StaffId)">Disable</button>
+                <button class="btn btn-sm btn-outline-primary " (click)="updateStaffs(sta.StaffId)">Edit</button>;
+                <button class="btn btn-sm btn-outline-warning" (click)="deleteMedicine(i)">Disable</button>
                 
             </td>
         </tr>

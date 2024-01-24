@@ -148,7 +148,7 @@
     <br>
 
     <!-- Department and Specialization will be displayed only when Role is Doctor -->
-    <div *ngIf="staffService.formData.RoleId === 2">
+    <div *ngIf="''+ staffService.formData?.RoleId === '2'">
         <div class="form-group">
             <label>Department&nbsp;</label>
             <select name="DepartmentId" #DepartmentId="ngModel" [(ngModel)]="staffService.formData.DepartmentId"

@@ -27,7 +27,12 @@ export class ListLabComponent implements OnInit {
   }
   
 
-
+  deleteMedicine(index: number): void {
+    // Remove the item from the array
+    this.labService.lab.splice(index, 1);
+    // Optionally, you can also call an API to delete the item from the server
+    // this.medicineService.deleteMedicine(this.medicineService.medicine[index].MedicineId);
+  }
   
 
 }

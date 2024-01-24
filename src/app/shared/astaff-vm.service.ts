@@ -47,7 +47,5 @@ export class AStaffVMService {
     return this.httpClient.get(environment.apiUrl+"api/A_Staff/"+staffId);
   }
 
-  updateStaff(staff:AStaffVM):Observable<any>{
-    return this.httpClient.put(environment.apiUrl+"api/A_Staff",staff);
-  }
+  
 }

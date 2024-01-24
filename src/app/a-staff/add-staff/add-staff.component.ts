@@ -4,6 +4,7 @@ import{ToastrService} from 'ngx-toastr';
 import { AStaffVM } from 'src/app/shared/astaff-vm';
 import { NgForm } from '@angular/forms';
 import { AStaffVMService } from 'src/app/shared/astaff-vm.service';
+import { StaffsService } from 'src/app/shared/staffs.service';
 
 @Component({
   selector: 'app-add-staff',
@@ -14,6 +15,7 @@ export class AddStaffComponent implements OnInit {
 
   constructor(
     public staffService:AStaffVMService,
+    public staffsService:StaffsService,
     private router:Router,
     private toastr: ToastrService
   ) { }
@@ -67,6 +69,16 @@ export class AddStaffComponent implements OnInit {
 
   UpdateRecord(form:NgForm)
   {
+    console.log("Updating ...");
+    this.staffsService.updateStaffs(form.value).subscribe(
+      (result)=>{
+      console.log(result);
+      this.resetForm(form);
+      this.toastr.success('Updated SUccessfully ','EMS App 2024');
+      this.router.navigate(['a-staff/list-staff']);
+      }
+
+    )
 
   }
 

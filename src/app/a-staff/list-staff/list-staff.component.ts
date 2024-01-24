@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import{AStaffVMService} from 'src/app/shared/astaff-vm.service'
 import { AStaffVM } from 'src/app/shared/astaff-vm';
+import { Router } from '@angular/router';
+import { StaffsService } from 'src/app/shared/staffs.service';
 
 @Component({
   selector: 'app-list-staff',
@@ -11,7 +13,9 @@ export class ListStaffComponent implements OnInit {
   filter:string;
   disabledStaff: Set<number> = new Set<number>();
 
-  constructor(public staffService:AStaffVMService) { }
+  constructor(public staffService:AStaffVMService,
+    staffsService:StaffsService,
+    private router:Router) { }
 
   ngOnInit(): void {
     console.log("Welcome Sofiya")
@@ -20,19 +24,16 @@ export class ListStaffComponent implements OnInit {
   }
 
 
-  // Method to disable a staff member
-  isStaffDisabled(staffId: number): boolean {
-    return this.disabledStaff.has(staffId);
+  updateStaffs(staffId:number){
+    console.log(staffId);
+    this.router.navigate(['/a-staff/editStaff',staffId])
   }
 
-  // Method to toggle the disabled status of a staff member
-  toggleDisable(staffId: number): void {
-    console.log("Disabling")
-    if (this.disabledStaff.has(staffId)) {
-      this.disabledStaff.delete(staffId);
-    } else {
-      this.disabledStaff.add(staffId);
-    }
+  deleteMedicine(index: number): void {
+    // Remove the item from the array
+    this.staffService.staff.splice(index, 1);
+    // Optionally, you can also call an API to delete the item from the server
+    // this.medicineService.deleteMedicine(this.medicineService.medicine[index].MedicineId);
   }
 
 }
