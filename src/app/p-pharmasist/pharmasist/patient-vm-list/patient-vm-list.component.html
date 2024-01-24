@@ -6,10 +6,13 @@
 <!-- Add Back button -->
 <button class="btn btn-info" (click)="onClickBack()">Back</button>
 
+<button class="btn btn-info" (click)="goToHome()">Home</button>
+
+
 <table class="table table-striped table-hover" *ngIf="!viewClicked">
     <thead>
         <tr>
-            <!-- <th>RegisterNo</th> -->
+            
             <th>RegisterNo</th>
             <th>PatientName</th>
             <th>PhoneNumber</th>
@@ -22,7 +25,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let pat of PPharmacistViewModelService.patients | filter:filter">
-            <!-- <td>{{pat.RegisterNo}}</td> -->
+           
             <td>{{pat.RegisterNo}}</td>
             <td>{{pat.PatientName}}</td>
             <td>{{pat.PhoneNumber}}</td>
@@ -97,6 +100,8 @@
     <div>
         <!-- Close button -->
         <button (click)="closePrintPopup()">Close</button>
+
+        
         
         <!-- Print button -->
         <button (click)="printPharmacyBill()">Print</button>

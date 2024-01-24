@@ -8,7 +8,8 @@ const routes: Routes = [
   
   {path:'home',component:HomeComponent},
   {path:'medicine-list',component:MedicineListComponent},
-  {path:'patient-list',component:PatientVMListComponent}
+  {path:'patient-list',component:PatientVMListComponent},
+  { path: 'home', component: HomeComponent }
 
 ];
 
