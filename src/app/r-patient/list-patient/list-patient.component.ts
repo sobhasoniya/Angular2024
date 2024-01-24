@@ -22,7 +22,7 @@ export class ListPatientComponent implements OnInit {
   updatepatient(patientId: number){
     console.log(patientId);
     this.router.navigate(['r-patient/edit-patient',patientId])
-    
+
   }
   Add(){
     this.router.navigate(["r-patient/Add-patient"])
@@ -36,6 +36,14 @@ export class ListPatientComponent implements OnInit {
     console.log(PatientId);
     this.router.navigate(['/r-appointment/book-appointment',PatientId])
 
+  }
+
+
+  deleteMedicine(index: number): void {
+    // Remove the item from the array
+    this.patientsService.patients.splice(index, 1);
+    // Optionally, you can also call an API to delete the item from the server
+    // this.medicineService.deleteMedicine(this.medicineService.medicine[index].MedicineId);
   }
   goBack(){
     this.router.navigate(['/r-appointment/home'])

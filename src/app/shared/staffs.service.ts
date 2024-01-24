@@ -15,10 +15,10 @@ export class StaffsService {
 
 
 
-  
+
 
 
   updateStaffs(staffs:Staffs):Observable<any>{
-    return this.httpClient.put(environment.apiUrl + "api/A_Staff/", staffs)
+    return this.httpClient.put(environment.apiUrl + "/api/A_Staff/", staffs)
   }
 }

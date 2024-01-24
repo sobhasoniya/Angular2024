@@ -5,8 +5,9 @@
             <input class="form-control" type="text" placeholder="Search Text Here..."
             [(ngModel)]="filter">
         </div>
-        
-        <a [routerLink]="['../add-labtests']" class="btn btn-outline-secondary" style="float: right; margin-bottom: 20px;" >Add Employee</a>
+
+
+
     </div>
 
 
@@ -21,8 +22,9 @@
             <th>LowRange</th>
             <th>HighRange</th>
             <th> TestPrice</th>
-           
-            
+            <th> Action</th>
+
+
         </tr>
     </thead>
     <tbody>
@@ -32,16 +34,17 @@
             <td>{{lab.LowRange}}</td>
             <td>{{lab.HighRange}}</td>
             <td>{{lab.Price}}</td>
-           
+
 
             <td>
                 <button class="btn btn-sm btn-outline-primary" (click)="updateLabTests(lab.TestId)">Edit</button>&nbsp;
                 <button class="btn btn-sm btn-outline-danger" (click)="deleteMedicine(i)">Delete</button>
-                
+
             </td>
         </tr>
     </tbody>
 </table>
-
+<button class="btn btn-dark "style="float: left; margin-left: 0px;"   (click)="goBack()">Back</button>
+<a [routerLink]="['../add-labtests']" class="btn btn-success" style="float: right; margin-right:0px;" >Add Employee</a>
 
 </div>

@@ -14,7 +14,7 @@ export class LabTestsService {
   constructor(private httpClient:HttpClient) { }
 
   BindListlab(){
-    this.httpClient.get(environment.apiUrl+"api/A_LabTests")
+    this.httpClient.get(environment.apiUrl+"/api/A_LabTests")
     .toPromise().then(response=>
       {
         this.lab=response as LabTests[];
@@ -25,15 +25,15 @@ export class LabTestsService {
 
 
   insertLabTests(lab:LabTests):Observable<any>{
-    return this.httpClient.post(environment.apiUrl+"api/A_LabTests",lab);
+    return this.httpClient.post(environment.apiUrl+"/api/A_LabTests",lab);
   }
 
   getLabTests(labId:number):Observable<any>{
-    return this.httpClient.get(environment.apiUrl+"api/A_LabTests/"+labId);
+    return this.httpClient.get(environment.apiUrl+"/api/A_LabTests/"+labId);
   }
 
   updateLabTests(lab:LabTests):Observable<any>{
-    return this.httpClient.put(environment.apiUrl+"api/A_LabTests",lab);
+    return this.httpClient.put(environment.apiUrl+"/api/A_LabTests",lab);
   }
 
 

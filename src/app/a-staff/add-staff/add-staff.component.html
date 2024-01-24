@@ -1,7 +1,7 @@
 <br>
 <form name="staffform" #form="ngForm" autocomplete="false" (ngSubmit)="onSubmit(form)">
 
-    <!-- DOM element should be equal to class property name because it is 
+    <!-- DOM element should be equal to class property name because it is
     paswsing as the key when sending data as object -->
 
     <input name="StaffId" [(ngModel)]="staffService.formData.StaffId">
@@ -147,6 +147,30 @@
     </div>
     <br>
 
+
+
+    <div class="form-group">
+      <label>Qualification&nbsp;</label>
+      <select name="QualificationId" #QualificationId="ngModel" [(ngModel)]="staffService.formData.QualificationId"
+          class="form-control" required
+          [ngClass]="{'is-invalid': QualificationId.touched && QualificationId.invalid}">
+          <option value="" disabled selected>Select Qualification</option>
+          <option value="2001">MBBS</option>
+          <option value="2002">M pharm</option>
+          <option value="2003">MBA</option>
+          <option value="2004">MLT</option>
+
+      </select>
+
+      <div class="Validation-error" *ngIf="QualificationId.touched && QualificationId.invalid">
+          <div>QualificationId is required</div>
+      </div>
+  </div>
+  <br>
+
+
+
+
     <!-- Department and Specialization will be displayed only when Role is Doctor -->
     <div *ngIf="''+ staffService.formData?.RoleId === '2'">
         <div class="form-group">
@@ -189,7 +213,7 @@
             <input name="ConsultationFee" #ConsultationFee="ngModel" [(ngModel)]="staffService.formData.ConsultationFee"
                 class="form-control" placeholder="Enter ConsultationFee" minlength="1" maxlength="25" required
                 [ngClass]="{'is-invalid':ConsultationFee.touched && ConsultationFee.invalid}">
-    
+
             <div class="Validation-error" *ngIf="ConsultationFee.touched && ConsultationFee.invalid">
                 <div>ConsultationFee is required</div>
             </div>
@@ -198,7 +222,7 @@
 
     </div>
 
-    
+
     <div class="form-group">
         <label>UserName&nbsp;</label>
         <input name="UserName" #UserName="ngModel" [(ngModel)]="staffService.formData.UserName" class="form-control"
@@ -228,7 +252,7 @@
                                                                         <input name="QualificationId" #QualificationId="ngModel" [(ngModel)]="staffService.formData.QualificationId"
                                                                             class="form-control" placeholder="Enter QualificationId" minlength="3" maxlength="25" required
                                                                             [ngClass]="{'is-invalid':QualificationId.touched && QualificationId.invalid}">
-                                                                
+
                                                                         <div class="Validation-error" *ngIf="QualificationId.touched && QualificationId.invalid">
                                                                             <div>QualificationId is required</div>
                                                                         </div>

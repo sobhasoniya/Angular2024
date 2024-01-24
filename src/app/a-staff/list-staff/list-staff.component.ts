@@ -12,6 +12,8 @@ import { StaffsService } from 'src/app/shared/staffs.service';
 export class ListStaffComponent implements OnInit {
   filter:string;
   disabledStaff: Set<number> = new Set<number>();
+  viewClicked: boolean = false;
+  listPatientRecord = [];
 
   constructor(public staffService:AStaffVMService,
     staffsService:StaffsService,
@@ -34,6 +36,14 @@ export class ListStaffComponent implements OnInit {
     this.staffService.staff.splice(index, 1);
     // Optionally, you can also call an API to delete the item from the server
     // this.medicineService.deleteMedicine(this.medicineService.medicine[index].MedicineId);
+  }
+
+  goBack():void{
+    this.viewClicked = false;
+    this.listPatientRecord = [];
+
+    // Navigate back to the home page
+    this.router.navigate(['a-home/adminhome']);
   }
 
 }

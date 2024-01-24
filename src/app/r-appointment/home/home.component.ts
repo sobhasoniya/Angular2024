@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['../add-patient']);
     }
     redirectToAppointments() {
-      this.router.navigate(['d-doctor/listAppointments']);
+      this.router.navigate(['../listAppointment']);
     }
 
     LogOut()

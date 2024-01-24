@@ -19,7 +19,7 @@ export class MedicineListComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("Medicine Management");
-    this.medicinesService.BindListMedicines();
+    this.medicinesService.BindListMedicine();
   }
 
   onClickReorder() {

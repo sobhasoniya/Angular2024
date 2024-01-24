@@ -38,7 +38,8 @@
 
   <div class="container">
     <h2 class="mb-8">PATIENT RECORDS</h2>
-    <table class="table table-bordered table-striped">
+    <input class="form-control" type="text" placeholder="Search here" [(ngModel)]="filter">
+    <table class="table table-bordered table-striped" >
       <thead class="thead-dark">
         <tr>
           <th>ID</th>
@@ -53,7 +54,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let p of patientsService.patients">
+        <tr *ngFor="let p of patientsService.patients | filter:filter">
           <td class="text-truncate">{{ p.PatientId }}</td>
           <td class="text-truncate">{{ p.RegisterNo }}</td>
           <td class="text-truncate">{{ p.PatientName }}</td>
@@ -64,20 +65,22 @@
           <td class="text-truncate">{{ p.PatientEmail }}</td>
           <td class="action-buttons">
             <button class="btn btn-info" (click)="updatepatient(p.PatientId)" >Edit</button>
-            <!-- <button class="btn btn-outline-danger btn-sm">Disable</button> -->
-           
+
+
+
 
             <button class="btn btn-secondary" (click)="detailsPatient(p.PatientId)">Details</button>
             <button class="btn btn-secondary" (click)="bookAppointment(p.PatientId)">Book Appointment</button>
+            <button class="btn btn-sm btn-outline-warning" (click)="deleteMedicine(i)">Disable</button>
           </td>
-          
+
         </tr>
       </tbody>
     </table>
     <div class="mt-3">
       <a class="btn btn-secondary" (click)="goBack()">Back</a>
   </div>
-    
+
   </div>
 
   <!-- Include Bootstrap JS and Popper.js (add the appropriate links to your project) -->
