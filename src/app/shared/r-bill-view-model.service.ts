@@ -13,11 +13,11 @@ export class BillviewmodelService {
   constructor(private httpClient:HttpClient) { }
   //Populating Patient Records
 getBill(BillId:number):Observable<any>{
-  return this.httpClient.get(environment.apiUrl+'api/RAppointments/GetBillDetails/'+BillId);
+  return this.httpClient.get(environment.apiUrl+'/api/RAppointments/GetBillDetails/'+BillId);
 }
 //Get All Appointments in the clinic
 BindAppointments(){
-  return this.httpClient.get(environment.apiUrl+'api/RAppointments/GetAllAppointments').toPromise().then(
+  return this.httpClient.get(environment.apiUrl+'/api/RAppointments/GetAllAppointments').toPromise().then(
     response=>{
       this.bill_rs=response as RBillViewModel[];
       console.log(this.bill_rs);
@@ -28,6 +28,6 @@ BindAppointments(){
 }
 //Canceling the Appointments
 CancelAppointments(AppointmentId:number){
-  return this.httpClient.patch(environment.apiUrl+'api/RAppointments/cancelAppointment/{appointmentId}'+AppointmentId,{});
+  return this.httpClient.patch(environment.apiUrl+'/api/RAppointments/cancelAppointment/{appointmentId}'+AppointmentId,{});
 }
 }

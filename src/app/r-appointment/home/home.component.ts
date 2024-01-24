@@ -13,17 +13,17 @@ export class HomeComponent implements OnInit {
     ngOnInit(): void {
      // throw new Error('Method not implemented.');
     }
-  
+
     redirectToPatientRecord() {
      this.router.navigate(['../list-patient']);
-    
+
     }
-  
+
     redirectToAdd() {
       this.router.navigate(['../add-patient']);
     }
     redirectToAppointments() {
-      this.router.navigate(['']);
+      this.router.navigate(['d-doctor/listAppointments']);
     }
-  
+
   }
