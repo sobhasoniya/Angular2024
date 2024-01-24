@@ -8,7 +8,9 @@ import { LabTestsService } from 'src/app/shared/lab-tests.service';
   styleUrls: ['./list-lab.component.scss']
 })
 export class ListLabComponent implements OnInit {
-  filter :string
+  filter :string;
+  viewClicked: boolean = false;
+  listPatientRecord = [];
 
   constructor(public labService:LabTestsService,
     private router :Router) { }
@@ -17,7 +19,15 @@ export class ListLabComponent implements OnInit {
     console.log("Welcome to LifeCycleHook");
     this.labService.BindListlab();
 
-    
+
+  }
+
+  goBack():void{
+    this.viewClicked = false;
+    this.listPatientRecord = [];
+
+    // Navigate back to the home page
+    this.router.navigate(['a-home/adminhome']);
   }
 
 
@@ -25,7 +35,7 @@ export class ListLabComponent implements OnInit {
     console.log(labId);
     this.router.navigate(['a-lab/editlabTests',labId])
   }
-  
+
 
   deleteMedicine(index: number): void {
     // Remove the item from the array
@@ -33,6 +43,6 @@ export class ListLabComponent implements OnInit {
     // Optionally, you can also call an API to delete the item from the server
     // this.medicineService.deleteMedicine(this.medicineService.medicine[index].MedicineId);
   }
-  
+
 
 }

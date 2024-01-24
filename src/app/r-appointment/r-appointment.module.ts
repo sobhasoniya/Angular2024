@@ -4,27 +4,30 @@ import { CommonModule } from '@angular/common';
 import { RAppointmentRoutingModule } from './r-appointment-routing.module';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { BookAppointmentComponent } from './book-appointment/book-appointment.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import{MatInputModule} from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatDatepickerModule } from '@angular/material/datepicker';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { RPatientModule } from '../r-patient/r-patient.module';
-import { MatNativeDateModule, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+
 import { BillGenerationComponent } from './bill-generation/bill-generation.component';
 import { HomeComponent } from './home/home.component';
+import { ListAppointmentComponent } from './list-appointment/list-appointment.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 @NgModule({
-  declarations: [AppointmentComponent, BookAppointmentComponent, BillGenerationComponent, HomeComponent],
+  declarations: [AppointmentComponent, BookAppointmentComponent, BillGenerationComponent, HomeComponent, ListAppointmentComponent],
   imports: [
     CommonModule,
-    RAppointmentRoutingModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
     ReactiveFormsModule,
     RPatientModule,
-    MatNativeDateModule
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
+    FormsModule,
+    RouterModule,
+    RAppointmentRoutingModule
   ]
 })
 export class RAppointmentModule { }

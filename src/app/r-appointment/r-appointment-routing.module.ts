@@ -4,12 +4,16 @@ import { BookAppointmentComponent } from './book-appointment/book-appointment.co
 import { HomeComponent } from './home/home.component';
 import { ListPatientComponent } from '../r-patient/list-patient/list-patient.component';
 import { AddPatientComponent } from '../r-patient/add-patient/add-patient.component';
+import { ListAppointmentComponent } from './list-appointment/list-appointment.component';
 
 const routes: Routes = [
   {path:'book-appointment/:PatientId',component:BookAppointmentComponent},
   {path:'home',component:HomeComponent},
   {path:'listPatient',component:ListPatientComponent},
   {path:'addPatient',component:AddPatientComponent},
+  {path:'listAppointment',component:ListAppointmentComponent}
+
+
 
 ];
 

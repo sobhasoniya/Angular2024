@@ -9,6 +9,8 @@ import{MedicinesService} from 'src/app/shared/medicines.service'
 })
 export class ListMedcineComponent implements OnInit {
   filter:string;
+  viewClicked: boolean = false;
+  listPatientRecord = [];
 
   constructor(public medicineService:MedicinesService,
     private router:Router) { }
@@ -16,6 +18,14 @@ export class ListMedcineComponent implements OnInit {
   ngOnInit(): void {
     console.log("Welcome to LifeCycle Hook")
     this.medicineService.BindListMedicine();
+  }
+
+  goBack():void{
+    this.viewClicked = false;
+    this.listPatientRecord = [];
+
+    // Navigate back to the home page
+    this.router.navigate(['a-home/adminhome']);
   }
 
 
@@ -26,11 +36,11 @@ export class ListMedcineComponent implements OnInit {
 
   deleteMedicine(index: number): void {
     // Remove the item from the array
-    this.medicineService.medicine.splice(index, 1);
+    this.medicineService.medicine.splice(index,1);
     // Optionally, you can also call an API to delete the item from the server
     // this.medicineService.deleteMedicine(this.medicineService.medicine[index].MedicineId);
   }
 
-  
+
 
 }

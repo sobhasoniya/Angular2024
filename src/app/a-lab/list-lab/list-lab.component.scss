@@ -1,0 +1,59 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #4CAF50;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.search-bar {
+  margin-bottom: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.btn-primary {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+}
+
+.btn-info {
+  background-color: #5bc0de;
+  color: white;
+  border: none;
+}
+
+.btn-danger {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+}

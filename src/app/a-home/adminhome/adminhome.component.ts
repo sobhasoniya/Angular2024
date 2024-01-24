@@ -13,4 +13,21 @@ export class AdminhomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  navigateToLaboratoryManagement() {
+    console.log("Hello");
+
+    this.router.navigate(['a-lab/list-labtests']);
+  }
+  navigateToMedicineManagement() {
+    console.log("Hello");
+
+    this.router.navigate(['a-medicine/list-medicine']);
+  }
+  navigateToStaffManagement() {
+    console.log("Hello");
+
+    this.router.navigate(['a-staff/list-staff'])
+
+}
 }

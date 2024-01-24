@@ -18,7 +18,7 @@ export class MedicinesService {
 
 
   BindListMedicine(){
-    this.httpClient.get(environment.apiUrl+"api/A_Medicine")
+    this.httpClient.get(environment.apiUrl+"/api/A_Medicine")
     .toPromise().then(response=>
       {
         this.medicine=response as Medicines[];
@@ -28,16 +28,16 @@ export class MedicinesService {
 
 
   insertMedicines(med:Medicines):Observable<any>{
-    return this.httpClient.post(environment.apiUrl+"api/A_Medicine",med);
+    return this.httpClient.post(environment.apiUrl+"/api/A_Medicine",med);
   }
 
   getMedicines(medId:number):Observable<any>{
-    return this.httpClient.get(environment.apiUrl+"api/A_Medicine/"+medId);
+    return this.httpClient.get(environment.apiUrl+"/api/A_Medicine/"+medId);
 
   }
 
   updateMedicines(medicine:Medicines):Observable<any>{
-    return this.httpClient.put(environment.apiUrl + "api/A_Medicine", medicine)
+    return this.httpClient.put(environment.apiUrl + "/api/A_Medicine", medicine)
   }
 
 

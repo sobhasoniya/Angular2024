@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AStaffVMService {
-  
+
   formData:AStaffVM = new AStaffVM();
   staffdetailsviewmodel:AStaffVM[];
   staff:Staffs[];
@@ -31,7 +31,7 @@ export class AStaffVMService {
 
 
   BindListStaffs(){
-    this.httpClient.get(environment.apiUrl + "api/A_Staff/ViewModelGetStaff")
+    this.httpClient.get(environment.apiUrl + "/api/A_Staff/ViewModelGetStaff")
     .toPromise().then(response =>{
       this.staffdetailsviewmodel=response as AStaffVM[];
       console.log(this.staff)
@@ -40,12 +40,12 @@ export class AStaffVMService {
 
 
   insertStaff(staff:AStaffVM):Observable<any>{
-    return this.httpClient.post(environment.apiUrl+"api/A_Staff",staff);
+    return this.httpClient.post(environment.apiUrl+"/api/A_Staff",staff);
   }
 
   getStaff(staffId:number):Observable<any>{
-    return this.httpClient.get(environment.apiUrl+"api/A_Staff/"+staffId);
+    return this.httpClient.get(environment.apiUrl+"/api/A_Staff/"+staffId);
   }
 
-  
+
 }

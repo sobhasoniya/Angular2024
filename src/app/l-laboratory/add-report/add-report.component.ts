@@ -17,7 +17,8 @@ export class AddReportComponent implements OnInit {
   reportTable: any[] = [];
   staffId:number=5001;
   TestId:number=502;
-
+  minDate: string;
+  maxDate: string;
 
   constructor(public lLabReportVMService:LLabReportVMService,
     public lLabTestsVMService:LLabTestsVMService,
@@ -25,7 +26,13 @@ export class AddReportComponent implements OnInit {
     private router:Router,
     public lgetidvmService: LGetIDVMService,
     public labreportgeneration:LabReportGenerationService)
- { }
+ {}
+  // formatDate(date: Date): string {
+  //   const year = date.getFullYear();
+  //   const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  //   const day = date.getDate().toString().padStart(2, '0');
+  //   return ${year}-${month}-${day};
+  // }
 
 
 

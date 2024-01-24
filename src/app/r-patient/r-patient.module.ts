@@ -7,6 +7,7 @@ import { AddPatientComponent } from './add-patient/add-patient.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditPatientComponent } from './edit-patient/edit-patient.component';
 import { DetailsPatientComponent } from './details-patient/details-patient.component';
+import {  Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -16,7 +17,9 @@ import { DetailsPatientComponent } from './details-patient/details-patient.compo
     CommonModule,
     RPatientRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
+
   ]
 })
 export class RPatientModule { }

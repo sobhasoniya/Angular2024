@@ -5,8 +5,9 @@
             <input class="form-control" type="text" placeholder="Search Text Here..."
             [(ngModel)]="filter">
         </div>
-        
-        <a [routerLink]="['../add-medicine']" class="btn btn-outline-secondary" style="float: right; margin-bottom: 20px;" >Add Employee</a>
+
+
+
     </div>
 
 
@@ -21,7 +22,7 @@
             <th>StockQuantity</th>
             <th>UnitPrice</th>
             <th>Action</th>
-            
+
         </tr>
     </thead>
     <tbody>
@@ -33,17 +34,18 @@
             <td>{{med.CompanyName}}</td>
             <td>{{med.StockQuantity}}</td>
             <td>{{med.UnitPrice}}</td>
-            
-           
+
+
             <td>
                 <button class="btn btn-sm btn-outline-primary" (click)="updateMedicine(med.MedicineId)">Edit</button>&nbsp;
                 <button class="btn btn-sm btn-outline-danger"style="margin-left: 10px;" (click)="deleteMedicine(i)">Delete</button>
-                
+
             </td>
         </tr>
     </tbody>
 </table>
 
 
-
+<button class="btn btn-dark "style="float: left; margin-left: 0px;"   (click)="goBack()">Back</button>
+<a [routerLink]="['../add-medicine']" class="btn btn-success" style="float: right; margin-right:0px;" >Add Medicine</a>
 </div>

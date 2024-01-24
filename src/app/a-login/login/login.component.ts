@@ -67,7 +67,7 @@ LoginCredentials()
         }
         else if(response.rId==1)
         {
-          this.router.navigateByUrl('a-home/');
+          this.router.navigateByUrl('a-home/adminhome');
         }
         else if(response.rId==2)
         {

@@ -5,8 +5,7 @@
             <input class="form-control" type="text" placeholder="Search Text Here..."
             [(ngModel)]="filter">
         </div>
-        
-        <a [routerLink]="['../add-staff']" class="btn btn-outline-secondary" style="float: right; margin-bottom: 20px;" >Add Employee</a>
+
     </div>
 
 
@@ -26,16 +25,16 @@
             <th>Email</th>
             <th>Qualification</th>
             <th>Department</th>
-            <th>SpecializationId</th>
+            <!-- <th>SpecializationId</th> -->
             <th>SpecializationName</th>
             <th>RoleName</th>
             <th>UserName</th>
             <th>Password</th>
-            <th>DepartmentId</th>
-            <th>QualificationId</th>
-            <th>RoleId</th>
-            
-            
+            <!-- <th>DepartmentId</th> -->
+            <!-- <th>QualificationId</th> -->
+            <!-- <th>RoleId</th> -->
+
+
         </tr>
     </thead>
     <tbody>
@@ -46,27 +45,32 @@
             <td>{{sta.Gender}}</td>
             <td>{{sta.Address}}</td>
             <td>{{sta.BloodGroup}}</td>
-            <td>{{sta.JoiningDate}}</td> 
+            <td>{{sta.JoiningDate}}</td>
             <td>{{sta.Salary}}</td>
             <td>{{sta.MobileNo}}</td>
-            <td>{{sta.Email}}</td> 
+            <td>{{sta.Email}}</td>
             <td>{{sta.Qualification}}</td>
             <td>{{sta.DepartmentName}}</td>
-            <td>{{sta.SpecializationId}}</td> 
+            <!-- <td>{{sta.SpecializationId}}</td>  -->
             <td>{{sta.Specialization}}</td>
             <td>{{sta.RoleName}}</td>
-            <td>{{sta.UserName}}</td> 
+            <td>{{sta.UserName}}</td>
             <td>{{sta.Password}}</td>
-            <td>{{sta.DepartmentId}}</td>
+            <!-- <td>{{sta.DepartmentId}}</td>
             <td>{{sta.QualificationId}}</td>
-            <td>{{sta.RoleId}}</td> 
+            <td>{{sta.RoleId}}</td>  -->
 
             <td>
                 <button class="btn btn-sm btn-outline-primary " (click)="updateStaffs(sta.StaffId)">Edit</button>;
                 <button class="btn btn-sm btn-outline-warning" (click)="deleteMedicine(i)">Disable</button>
-                
+
             </td>
         </tr>
     </tbody>
 </table>
+
+
+<a [routerLink]="['../add-staff']" class="btn btn-outline-secondary" style="float: right; margin-bottom: 20px;" >Add Employee</a>
+<button class="btn btn-dark "style="float: left; margin-left: 0px;"   (click)="goBack()">Back</button>
+
 </div>
