@@ -14,7 +14,7 @@
     <thead>
         <tr>
 
-            <th>RegisterNo</th>
+
             <th>PatientName</th>
             <th>PhoneNumber</th>
             <th>PrescribedMedicine</th>
@@ -27,7 +27,7 @@
     <tbody>
         <tr *ngFor="let pat of PPharmacistViewModelService.patients | filter:filter">
 
-            <td>{{pat.RegisterNo}}</td>
+           
             <td>{{pat.PatientName}}</td>
             <td>{{pat.PhoneNumber}}</td>
             <td>{{pat.PrescribedMedicine}}</td>
