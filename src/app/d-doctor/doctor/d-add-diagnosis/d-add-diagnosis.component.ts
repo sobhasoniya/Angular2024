@@ -95,6 +95,7 @@ calculateMedicineQuantity(): void {
 
   // Calculate the medicine quantity
   this.medicineQuantity = sumOfDosageParts * days;
+  console.log(this.medicineQuantity);
 }
 
 ViewPatientDetails()

@@ -15,6 +15,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
+import { MatNativeDateModule } from '@angular/material/core';
+import{MatDatepickerModule} from '@angular/material/datepicker'
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -27,7 +30,11 @@ import { AppRoutingModule } from '../app-routing.module';
     Ng2SearchPipeModule,
     FormsModule,
     RouterModule,
-    RAppointmentRoutingModule
+    RAppointmentRoutingModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    HttpClientModule
+
   ]
 })
 export class RAppointmentModule { }
