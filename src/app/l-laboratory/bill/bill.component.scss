@@ -1,30 +1,66 @@
-.lab-report {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-  }
+.labbill-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.labbill-card {
+  width: 600px; /* Increased width */
+  height: 400px; /* Increased height */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.labbillvm {
+  text-align: left;
+}
+
+/* Remaining styles remain unchanged */
+
+
+.labbillvm h2 {
+  margin-bottom: 20px;
+}
+
+.labbillvm div {
   
-  h2 {
-    text-align: center;
-  }
-  
-  div {
-    margin-bottom: 10px;
-  }
-  
-  label {
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
-  button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+  margin-bottom: 10px;
+}
+
+.labbillvm label {
+  display: inline-block;
+  width: 120px;
+  font-weight: bold;
+}
+
+.labbillvm span {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.labbillvm button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.labbillvm button:hover {
+  background-color: #45a049;
+}
+
+.labbillvm button.back {
+  background-color: #ccc;
+  color: #333;
+}
+
+.labbillvm button.back:hover {
+  background-color: #bbb;
+}
