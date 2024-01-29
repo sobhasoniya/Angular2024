@@ -9,6 +9,9 @@ import { Roles } from './roles';
 import { Specializations } from './specializations';
 import { HttpClient } from '@angular/common/http';
 import{Observable} from 'rxjs';
+import { of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators'; // Add catchError and map operators
+
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -16,6 +19,8 @@ import { environment } from 'src/environments/environment';
 })
 export class AStaffVMService {
 
+
+  private usernamePasswordList: { username: string, password: string }[] = [];
   formData:AStaffVM = new AStaffVM();
   staffdetailsviewmodel:AStaffVM[];
   staff:Staffs[];
@@ -27,7 +32,13 @@ export class AStaffVMService {
   specialization:Specializations[];
 
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient) {
+    this.usernamePasswordList = [
+      { username: 'Aaron', password: 'Aaron123' },
+      { username: 'Aaditya', password: 'Aaditya123' },
+      // Add more entries as needed
+    ];
+   }
 
 
   BindListStaffs(){
@@ -48,4 +59,17 @@ export class AStaffVMService {
   }
 
 
+  checkDuplicateUsernamePassword(username: string, password: string): Observable<boolean> {
+    console.log('Checking for duplicates:', username, password);
+    console.log('UsernamePasswordList:', this.usernamePasswordList);
+  
+    const isDuplicate = this.usernamePasswordList.some(entry => entry.username === username || entry.password === password);
+  
+    console.log('Is Duplicate:', isDuplicate);
+  
+    // Simulate an asynchronous response
+    return of(isDuplicate).pipe(
+      catchError(() => of(false))
+    );
+  }
 }

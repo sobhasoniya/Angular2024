@@ -48,6 +48,8 @@ export class AddMedicineComponent implements OnInit {
     }
   }
 
+  
+
 
 
   resetForm(form:NgForm){

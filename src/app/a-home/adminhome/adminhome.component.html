@@ -1,79 +1,47 @@
-<div style="background-color: #eccbf5; height: 100vh;">
-  <!-- Your component content goes here -->
+<div class="container-fluid bg-light">
+  <div class="row vh-100 justify-content-center align-items-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body text-center p-5">
+          <h3 class="text-dark mb-4">Welcome Admin Aaron!</h3>
+          <div class="row">
+            <div class="col-md-4">
+              <button class="btn btn-primary btn-lg btn-block mb-3 btn-laboratory" (click)="navigateToLaboratoryManagement()">
+                Laboratory Management
+              </button>
+            </div>
 
-  <div class="admin-home-container">
-    <!-- Background Image -->
-    <br>
-    <h3 style="color: black;">Welcome Admin Aaron!</h3>
-    <!-- Content Container -->
-    <div class="content-container">
-      <!-- Page Heading -->
+            <div class="col-md-4">
+              <button class="btn btn-success btn-lg btn-block mb-3 btn-medicine" (click)="navigateToMedicineManagement()">
+                Medicine Management
+              </button>
+            </div>
 
-      <!-- Three Large Buttons -->
-      <div class="buttons-container">
-        <!-- Laboratory Management Button -->
-        <button class="large-button" (click)="navigateToLaboratoryManagement()">
-          Laboratory Management
-        </button><br>
-
-        <!-- Medicine Management Button -->
-        <button class="large-button" (click)="navigateToMedicineManagement()">
-          Medicine Management
-        </button><br>
-
-        <!-- Staff Management Button -->
-        <button class="large-button" (click)="navigateToStaffManagement()">
-          Staff Management
-        </button>
+            <div class="col-md-4">
+              <button class="btn btn-info btn-lg btn-block mb-3 btn-staff" (click)="navigateToStaffManagement()">
+                Staff Management
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  <!-- Your component content goes here -->
 </div>
 
 <style>
-  .admin-home-container {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  .content-container {
-    position: relative;
-    z-index: 1;
-    padding: 10px;
-    text-align: center;
+  .btn-laboratory {
+    background-color: #145015;
     color: white;
   }
 
-  .buttons-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center buttons horizontally */
-    justify-content: center; /* Center buttons vertically */
-    margin-top: 20px;
-    text-align: center;
-  }
-
-  .large-button {
-    width: 300px; /* Adjust button width as needed */
-    height: 120px;
-    background-color: #581845;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+  .btn-medicine {
+    background-color: #726a11;
     color: white;
-    font-size: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Center text vertically */
   }
 
-  .large-button img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
+  .btn-staff {
+    background-color: #6b0c22;;
+    color: white;
   }
 </style>
