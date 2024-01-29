@@ -1,88 +1,110 @@
-<form name="labform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+<br>
+<form name="empform" #form="ngForm" autocomplete="false" (ngSubmit)="onSubmit(form)">
 
+    <!-- DOM element should be equal to class property name because it is 
+    paswsing as the key when sending data as object -->
 
-    <input  name="testId" [(ngModel)]="labService.formData.TestId">
+    <input type="hidden" name="TestId" [(ngModel)]="labService.formData.TestId">
 
+    <!-- type="hidden" -->
 
+    
 
-    <div class="form-grup">
-        <label style="margin-left: 10px ">Test Name</label>
-        <input name="TestName" #TestName="ngModel" [(ngModel)]="labService.formData.TestName"
-            class="form-control" placeholder="Enter the Test Name" minlength="3" maxlength="25" required
-            [ngClass]="{'is-invalid':TestName.touched && TestName.invalid}" style="margin-left: 10px ">
-
-
-        <div class="validation-error" *ngIf="TestName.touched && TestName.invalid">
-            <div>Test Name  Is Required</div>
-        </div>
-
-    </div>
-    <br>
-
-
-   
-
-
-    <div class="form-grup">
-        <label style="margin-left: 10px ">Low Range</label>
-        <input name="LowRange" #LowRange="ngModel" [(ngModel)]="labService.formData.LowRange" class="form-control"
-            placeholder="Enter LowRange" minlength="3" maxlength="25" required
-            [ngClass]="{'is-invalid':LowRange.touched && LowRange.invalid}" style="margin-left: 10px ">
-
-
-        <div class="validation-error" *ngIf="LowRange.touched && LowRange.invalid">
-            <div>LowRange Is Required</div>
-        </div>
-
-    </div>
-    <br>
-
-
-
-    <div class="form-grup">
-        <label style="margin-left: 10px ">High Range</label>
-        <input name="HighRange" #HighRange="ngModel" [(ngModel)]="labService.formData.HighRange" class="form-control"
-            placeholder="Enter HighRange" minlength="3" maxlength="25" required
-            [ngClass]="{'is-invalid':HighRange.touched && HighRange.invalid}" style="margin-left: 10px ">
-
-
-        <div class="validation-error" *ngIf="HighRange.touched && HighRange.invalid">
-            <div>HighRange Is Required</div>
-        </div>
-
-    </div>
-    <br>
-
-
-    <div class="form-grup">
-        <label style="margin-left: 10px ">Price</label>
-        <input name="Price" #Price="ngModel" [(ngModel)]="labService.formData.Price" class="form-control"
-            placeholder="Enter Price" minlength="3" maxlength="25" required
-            [ngClass]="{'is-invalid':Price.touched && Price.invalid}" style="margin-left: 10px ">
-
-
-        <div class="validation-error" *ngIf="Price.touched && Price.invalid">
-            <div>Price Is Required</div>
-        </div>
-
-    </div>
-    <br>
-
-   
-
-
-
-    <br>
 
 
     <div class="form-group">
-        <button type="submit" [disabled]="!(form.valid && form.dirty)"
-            class="btn btn-sm btn-primary form-control">SUBMIT</button>
+        <label>Test Name  &nbsp;</label>
+        <input name="TestName"
+               #TestName="ngModel"
+               [(ngModel)]="labService.formData.TestName"
+               class="form-control"
+               placeholder="Enter Test Name"
+               required
+               pattern="^[a-zA-Z ]+$" 
+               [ngClass]="{'is-invalid': TestName.touched && TestName.invalid}">
+    
+        <div class="Validation-error" *ngIf="TestName.touched && TestName.invalid">
+            <div *ngIf="TestName.errors.required">Full name is required</div>
+            <div *ngIf="TestName.errors.pattern">Only alphabets are allowed</div>
+        </div>
     </div>
+    <br>
+    
 
 
+    <div class="form-group">
+        <label>Low Range (ml) &nbsp;</label>
+        <input name="LowRange"
+               #LowRange="ngModel"
+               [(ngModel)]="labService.formData.LowRange"
+               class="form-control"
+               placeholder="Enter Low Range"
+               required
+               pattern="^[0-9.]+$" 
+               [ngClass]="{'is-invalid': LowRange.touched && LowRange.invalid}">
+    
+        <div class="Validation-error" *ngIf="LowRange.touched && LowRange.invalid">
+            <div *ngIf="LowRange.errors.required">Low Range is required</div>
+            <div *ngIf="LowRange.errors.pattern">Only numbers and dots are allowed</div>
+        </div>
+    </div>
+    <br>
+    
 
 
+    <div class="form-group">
+        <label>High Range&nbsp;</label>
+        <input name="HighRange"
+               #HighRange="ngModel"
+               [(ngModel)]="labService.formData.HighRange"
+               class="form-control"
+               placeholder="Enter High Range"
+               minlength="3"
+               maxlength="25"
+               required
+               pattern="^[0-9.]+$" 
+               [ngClass]="{'is-invalid': HighRange.touched && HighRange.invalid}">
+    
+        <div class="Validation-error" *ngIf="HighRange.touched && HighRange.invalid">
+            <div *ngIf="HighRange.errors.required">High Range is required</div>
+            <div *ngIf="HighRange.errors.pattern">Only numbers and dots are allowed</div>
+        </div>
+    </div>
+    <br>
+    
 
 
+    <div class="form-group">
+        <label>Price&nbsp;</label>
+        <input name="Price"
+               #Price="ngModel"
+               [(ngModel)]="labService.formData.Price"
+               class="form-control"
+               placeholder="Enter Price"
+               type="number"
+               required
+               [ngClass]="{'is-invalid': Price.touched && Price.invalid}">
+    
+        <div class="Validation-error" *ngIf="Price.touched && Price.invalid">
+            <div *ngIf="Price.errors.required">Price is required</div>
+            <div *ngIf="Price.errors.number">Please enter a valid number</div>
+        </div>
+    
+    <br>
+    
+
+        <!-- Dirty is the tearm used to flag if the data or state has changed -->
+        <button type="submit" [disabled]="!(form.valid && form.dirty)"
+            class="btn btn-lg btn-primary form-control">Submit</button>
+    </div>
+    <br>
+    <button class="btn btn-dark mt-3" (click)="goBack()">Back</button>
 </form>
+<style>
+    .Validation-error {
+        color: #dc3545;
+        /* Red color for error messages */
+        font-size: 12px;
+        margin-top: 4px;
+    }
+</style>

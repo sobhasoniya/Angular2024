@@ -12,8 +12,10 @@ import { StaffsService } from 'src/app/shared/staffs.service';
   styleUrls: ['./add-staff.component.scss']
 })
 export class AddStaffComponent implements OnInit {
+  passwordInvalid = false;        
   viewClicked: boolean = false;
   listPatientRecord = [];
+  isDuplicate: boolean = false;
   constructor(
     public staffService:AStaffVMService,
     public staffsService:StaffsService,
@@ -24,26 +26,32 @@ export class AddStaffComponent implements OnInit {
   ngOnInit(): void {
     this.staffService.BindListStaffs();
     this.staffService.formData=new AStaffVM();
+    
   }
 
 
-  onSubmit(form:NgForm)
-  {
-    let staffId=this.staffService.formData.StaffId;
-    if(staffId==0||staffId==null)
-    {
-      //alert(addId)
-      console.log(form.value);
-      this.InsertRecord(form);
-      //window.location.reload();
-    }
-    else
-    {
-      //alert("Emp Id is Greater");
-      console.log(form.value);
-      this.UpdateRecord(form);
-    }
+  onSubmit(form: NgForm) {
+    
+    // Check if the username and password already exist
+    this.staffService.checkDuplicateUsernamePassword(form.value.UserName, form.value.Password)
+      .subscribe((isDuplicate: boolean) => {
+        if (isDuplicate) {
+          this.toastr.error('Username or password already exists', 'Validation Error');
+          this.isDuplicate = true;
+        } else {
+          let staffId = this.staffService.formData.StaffId;
+          if (staffId == 0 || staffId == null) {
+            this.InsertRecord(form);
+          } else {
+            this.UpdateRecord(form);
+          }
+        }
+      }, (error) => {
+        console.error('Error checking duplicates:', error);
+        // Handle error as needed
+      });
   }
+  
 
 
 
@@ -90,5 +98,7 @@ export class AddStaffComponent implements OnInit {
     )
 
   }
+
+  
 
 }

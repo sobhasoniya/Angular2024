@@ -11,6 +11,8 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add-lab.component.scss']
 })
 export class AddLabComponent implements OnInit {
+  viewClicked: boolean = false;
+  listPatientRecord = [];
 
   constructor(
     public labService:LabTestsService,
@@ -77,7 +79,17 @@ export class AddLabComponent implements OnInit {
 
     )
 
+    
 
+
+  }
+
+  goBack():void{
+    this.viewClicked = false;
+    this.listPatientRecord = [];
+
+    // Navigate back to the home page
+    this.router.navigate(['a-lab/list-labtests']);
   }
 
 }

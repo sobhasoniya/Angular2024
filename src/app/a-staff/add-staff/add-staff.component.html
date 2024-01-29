@@ -1,24 +1,19 @@
 <br>
-<form name="staffform" #form="ngForm" autocomplete="false" (ngSubmit)="onSubmit(form)">
+<br>
+<form name="staffform" #form="ngForm" autocomplete="false" (ngSubmit)="onSubmit(form)" class="needs-validation" novalidate>
 
-    <!-- DOM element should be equal to class property name because it is
-    paswsing as the key when sending data as object -->
+  <input name="StaffId" [(ngModel)]="staffService.formData.StaffId" type="hidden">
 
-    <input name="StaffId" [(ngModel)]="staffService.formData.StaffId">
+  <div class="form-group">
+    <label for="FullName">Full Name</label>
+    <input name="FullName" #FullName="ngModel" [(ngModel)]="staffService.formData.FullName" class="form-control"
+      placeholder="Enter Full Name" minlength="3" maxlength="25" required [ngClass]="{'is-invalid': FullName.touched && FullName.invalid}">
 
-    <!-- type="hidden" -->
-
-    <div class="form-group">
-        <label>Full Name&nbsp;</label>
-        <input name="FullName" #FullName="ngModel" [(ngModel)]="staffService.formData.FullName" class="form-control"
-            placeholder="Enter Full Name" minlength="3" maxlength="25" required
-            [ngClass]="{'is-invalid': FullName.touched && FullName.invalid}">
-
-        <div class="Validation-error" *ngIf="FullName.touched && FullName.invalid">
-            <div>Full Name is required</div>
-        </div>
+    <div class="invalid-feedback">
+      Full Name is required.
     </div>
-    <br>
+  </div>
+  <br>
 
     <div class="form-group">
         <label>Dob&nbsp;</label>
@@ -237,37 +232,34 @@
 
     <div class="form-group">
         <label>Password&nbsp;</label>
-        <input name="Password" #Password="ngModel" [(ngModel)]="staffService.formData.Password" class="form-control"
-            placeholder="Enter Password" minlength="3" maxlength="25" required
-            [ngClass]="{'is-invalid':Password.touched && Password.invalid}">
-
-        <div class="Validation-error" *ngIf="Password.touched && Password.invalid">
+        <input
+            name="Password"
+            #Password="ngModel"
+            [(ngModel)]="staffService.formData.Password"
+            class="form-control"
+            placeholder="Enter Password"
+            minlength="3"
+            maxlength="25"
+            required
+            [ngClass]="{'is-invalid': Password.touched && (Password.invalid || passwordInvalid)}">
+        <div class="Validation-error" *ngIf="Password.touched && Password.invalid && !passwordInvalid">
             <div>Password is required</div>
+        </div>
+        <div class="Validation-error" *ngIf="passwordInvalid">
+            <div>Password must contain at least one uppercase letter</div>
         </div>
     </div>
     <br>
-
-    <!-- <div class="form-group">
-                                                                    <label>QualificationId&nbsp;</label>
-                                                                        <input name="QualificationId" #QualificationId="ngModel" [(ngModel)]="staffService.formData.QualificationId"
-                                                                            class="form-control" placeholder="Enter QualificationId" minlength="3" maxlength="25" required
-                                                                            [ngClass]="{'is-invalid':QualificationId.touched && QualificationId.invalid}">
-
-                                                                        <div class="Validation-error" *ngIf="QualificationId.touched && QualificationId.invalid">
-                                                                            <div>QualificationId is required</div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <br> -->
+    
+  
 
 
 
 
     <div class="form-group">
+    <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-lg btn-primary btn-block">Submit</button>
+  </div>
 
-        <!-- Dirty is the tearm used to flag if the data or state has changed -->
-        <button type="submit" [disabled]="!(form.valid && form.dirty)"
-            class="btn btn-lg btn-primary form-control">Submit</button>
-    </div>
-             
 </form>
-<button class="btn btn-dark "style="float: left; margin-left: 0px;"   (click)="goBack()">Back</button>
+
+<button class="btn btn-dark mt-3" (click)="goBack()">Back</button>
