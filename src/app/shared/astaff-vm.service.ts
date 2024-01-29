@@ -34,8 +34,8 @@ export class AStaffVMService {
 
   constructor(private httpClient:HttpClient) {
     this.usernamePasswordList = [
-      { username: 'Aaron', password: 'Aaron123' },
-      { username: 'Aaditya', password: 'Aaditya123' },
+      { username: 'deepan', password: 'deep123' },
+      { username: 'aaron', password: 'aaron01' },
       // Add more entries as needed
     ];
    }
@@ -62,11 +62,11 @@ export class AStaffVMService {
   checkDuplicateUsernamePassword(username: string, password: string): Observable<boolean> {
     console.log('Checking for duplicates:', username, password);
     console.log('UsernamePasswordList:', this.usernamePasswordList);
-  
+
     const isDuplicate = this.usernamePasswordList.some(entry => entry.username === username || entry.password === password);
-  
+
     console.log('Is Duplicate:', isDuplicate);
-  
+
     // Simulate an asynchronous response
     return of(isDuplicate).pipe(
       catchError(() => of(false))

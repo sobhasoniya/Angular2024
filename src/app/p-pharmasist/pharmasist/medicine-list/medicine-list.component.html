@@ -1,41 +1,36 @@
-<div class="form-container">
 <div class="form-control">
-    <input class="form-control" type="text" placeholder="search text here..." [(ngModel)]="filter">
+  <input class="form-control" type="text" placeholder="search text here..." [(ngModel)]="filter">
 </div><br>
+
 <!-- Add Back button -->
 <button class="btn btn-info" (click)="onClickBack()">Back</button>
+
 <table class="table table-striped table-hover">
-    <thead>
-        <tr>
-            <!-- <th>MedicineId</th> -->
-            <th>MedicineCode</th>
-            <th>MedicineName</th>
-            <th>GenericName</th>
-            <th>CompanyName</th>
-            <th>StockQuantity</th>
-            <th>UnitPrice</th>
-            <th>Action</th>
-
-        </tr>
-
-    </thead>
-    <tbody>
-        <tr *ngFor="let med of medicinesService.medicine|filter:filter">
-            <!-- <td>{{med.MedicineId}}</td> -->
-            <td>{{med.MedicineCode}}</td>
-            <td>{{med.MedicineName}}</td>
-            <td>{{med.GenericName}}</td>
-            <td>{{med.CompanyName}}</td>
-            <td [ngStyle]="{'color': med.StockQuantity <= 10 ? 'red' : '' }">{{med.StockQuantity}}</td>
-            <td>{{med.UnitPrice}}</td>
-            <td>
-                <button class = "btn btn-info" (click)="onClickReorder()">Re-Order</button>
-
-
-            </td>
-
-
-        </tr>
-    </tbody>
+  <thead>
+      <tr>
+          <!-- <th>MedicineId</th> -->
+          <th>MedicineCode</th>
+          <th>MedicineName</th>
+          <th>GenericName</th>
+          <th>CompanyName</th>
+          <th>StockQuantity</th>
+          <th>UnitPrice</th>
+          <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let med of medicinesService.medicine|filter:filter">
+          <!-- <td>{{med.MedicineId}}</td> -->
+          <td>{{med.MedicineCode}}</td>
+          <td>{{med.MedicineName}}</td>
+          <td>{{med.GenericName}}</td>
+          <td>{{med.CompanyName}}</td>
+          <td [ngStyle]="{'color': med.StockQuantity <= 10 ? 'red' : '' }">{{med.StockQuantity}}</td>
+          <td>{{med.UnitPrice}}</td>
+          <td>
+              <!-- Re-Order button with manual input -->
+              <button class="btn btn-info" (click)="manualReorderNotification(med)">Re-Order</button>
+          </td>
+      </tr>
+  </tbody>
 </table>
-</div>

@@ -5,6 +5,8 @@ import { AStaffVM } from 'src/app/shared/astaff-vm';
 import { NgForm } from '@angular/forms';
 import { AStaffVMService } from 'src/app/shared/astaff-vm.service';
 import { StaffsService } from 'src/app/shared/staffs.service';
+import { Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-add-staff',
@@ -12,7 +14,53 @@ import { StaffsService } from 'src/app/shared/staffs.service';
   styleUrls: ['./add-staff.component.scss']
 })
 export class AddStaffComponent implements OnInit {
-  passwordInvalid = false;        
+  getMinDOBDate(): string {
+    const currentDate = new Date();
+    const minDOBDate = new Date(currentDate);
+    minDOBDate.setFullYear(currentDate.getFullYear() - 60); // Set 18 years ago
+    return this.formatDate(minDOBDate);
+  }
+
+  getMaxDOBDate(): string {
+    const currentDate = new Date();
+    const maxDOBDate = new Date(currentDate);
+    maxDOBDate.setFullYear(currentDate.getFullYear() - 18); // Set 60 years ago
+    return this.formatDate(maxDOBDate);
+  }
+
+  formatDate(date: Date): string {
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
+
+
+  getMinDOBDate1(): string {
+    const currentDate = new Date();
+    const minJoinDate = new Date(currentDate);
+    minJoinDate.setDate(currentDate.getDate() - 10); // Set 10 days ago
+    return this.formatDate2(minJoinDate);
+  }
+  getMaxDOBDate2(): string {
+    const currentDate = new Date();
+    const minJoinDate = new Date(currentDate);
+    minJoinDate.setDate(currentDate.getDate());
+    return this.formatDate2(minJoinDate);
+  }
+  formatDate2(date: Date): string {
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
+
+
+  minDob: string = '1900-01-01'; // Update with your desired minimum date for Dob
+  maxJoiningDate: string = '2024-01-19'; // Update with your desired maximum date for JoiningDate
+  passwordInvalid = false;
   viewClicked: boolean = false;
   listPatientRecord = [];
   isDuplicate: boolean = false;
@@ -26,12 +74,13 @@ export class AddStaffComponent implements OnInit {
   ngOnInit(): void {
     this.staffService.BindListStaffs();
     this.staffService.formData=new AStaffVM();
-    
+
   }
 
 
+
   onSubmit(form: NgForm) {
-    
+
     // Check if the username and password already exist
     this.staffService.checkDuplicateUsernamePassword(form.value.UserName, form.value.Password)
       .subscribe((isDuplicate: boolean) => {
@@ -51,7 +100,7 @@ export class AddStaffComponent implements OnInit {
         // Handle error as needed
       });
   }
-  
+
 
 
 
@@ -99,6 +148,6 @@ export class AddStaffComponent implements OnInit {
 
   }
 
-  
+
 
 }
