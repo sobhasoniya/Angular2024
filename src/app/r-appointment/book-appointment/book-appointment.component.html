@@ -22,53 +22,53 @@
             </div>
 
             <!-- Additional Form Card -->
-            <div class="card mt-4">
-                <div class="card-body">
-                    <form  name="bookingform" autocomplete="false" (ngSubmit)="onSubmit(appointmentForm)">
+<!-- Additional Form Card -->
+<div class="card mt-4">
+  <div class="card-body">
+    <!-- Use [formGroup] directive to bind to the appointmentForm FormGroup -->
+    <form [formGroup]="appointmentForm" name="bookingform" autocomplete="false" (ngSubmit)="onSubmit(appointmentForm)">
 
-                    <div class="form-group">
-                      <label>Department</label>
-                      <select formControlName="DepartmentId" class="form-control" required (change)="onDepartmentChange()">
-                        <option value="0" disabled>Choose Department</option>
-                        <option *ngFor="let dept of bookingService.departments" [value]="dept.DepartmentId">{{ dept.DepartmentName }}</option>
-                      </select>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                      <label>Specialization</label>
-                      <select formControlName="SpecializationId" class="form-control" required (change)="onSpecializationChange()">
-                        <option value="0" disabled>Choose Specialization</option>
-                        <option *ngFor="let spec of this.specializations" [value]="spec.SpecializationId">{{ spec.Specialization }}</option>
-                      </select>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                      <label>Doctor</label>
-                      <select formControlName="DoctorId" class="form-control" required (change)="onDoctorChange()">
-                        <option value="0" disabled>Choose Doctor</option>
-                        <option *ngFor="let doc of doctors" [ngValue]="{ DoctorId: doc.DoctorId, ConsultationFee: doc.ConsultationFee }">
-                          {{ doc.FullName }}
-                        </option>
-                      </select>
-                    </div>
+      <div class="form-group">
+        <label>Department</label>
+        <select formControlName="DepartmentId" class="form-control" required (change)="onDepartmentChange()">
+          <option value="0" disabled>Choose Department</option>
+          <option *ngFor="let dept of bookingService.departments" [value]="dept.DepartmentId">{{ dept.DepartmentName }}</option>
+        </select>
+      </div>
+      <br>
+      <div class="form-group">
+        <label>Specialization</label>
+        <select formControlName="SpecializationId" class="form-control" required (change)="onSpecializationChange()">
+          <option value="0" disabled>Choose Specialization</option>
+          <option *ngFor="let spec of specializations" [value]="spec.SpecializationId">{{ spec.Specialization }}</option>
+        </select>
+      </div>
+      <br>
+      <div class="form-group">
+        <label>Doctor</label>
+        <select formControlName="DoctorId" class="form-control" required (change)="onDoctorChange()">
+          <option value="0" disabled>Choose Doctor</option>
+          <option *ngFor="let doc of doctors" [ngValue]="{ DoctorId: doc.DoctorId, ConsultationFee: doc.ConsultationFee }">
+            {{ doc.FullName }}
+          </option>
+        </select>
+      </div>
 
-                    <div class="form-group">
-                      <label>Appointment Date:</label>
-                      <input  formControlName="AppointmentDate" type="date">
+      <div class="form-group">
+        <label>Appointment Date:</label>
+        <input formControlName="AppointmentDate" type="date" [min]="getMinDOBDate1()"
+        [max]="getMaxDOBDate2()">>
+      </div>
 
-                    </div>
+      <div class="form-group">
+        <button type="submit" [disabled]="!appointmentForm.valid && appointmentForm.dirty"
+                class="btn btn-md btn-primary form-control">BOOK
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 
-                    <div class="form-group">
-                      <button type="submit" [disabled]="!appointmentForm.valid && appointmentForm.dirty"
-                              class="btn btn-md btn-primary form-control">BOOK
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="mt-3 text-center">
           <a class="btn btn-secondary" (click)="backtoPatientList()">Back</a>
       </div>

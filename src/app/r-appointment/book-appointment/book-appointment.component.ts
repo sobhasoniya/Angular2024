@@ -38,6 +38,7 @@ export class BookAppointmentComponent implements OnInit {
   isNewPatient:boolean=false;
   specializations:any[]=[];
   doctors:any[]=[];
+  departmentId:number=11;
  
   minDate:Date=new Date();
   maxDate:Date=new Date();
@@ -55,14 +56,40 @@ export class BookAppointmentComponent implements OnInit {
         // Initialize the form group
     this.appointmentForm = this.fb.group({
       DepartmentId: [null, Validators.required],
-      SpecializationId: [null, Validators.required],
+      // SpecializationId: [null, Validators.required],
       DoctorId: [null, Validators.required],
       AppointmentDate: [null, Validators.required],
     });
     
    }
 
+
+   getMinDOBDate1(): string {
+    const currentDate = new Date();
+    const minJoinDate = new Date(currentDate);
+    minJoinDate.setDate(currentDate.getDate() ); // Disable the current day and preceding days
+    return this.formatDate2(minJoinDate);
+  }
+  
+  getMaxDOBDate2(): string {
+    const currentDate = new Date();
+    const maxJoinDate = new Date(currentDate);
+    maxJoinDate.setDate(currentDate.getDate() + 7); // Enable the current day and next 7 days
+    return this.formatDate2(maxJoinDate);
+  }
+  
+  formatDate2(date: Date): string {
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+  
+
    ngOnInit(): void {
+
+
+    
     this.patientId=this.route.snapshot.params['PatientId'];
     // Retrieve isNewPatient from query parameters
   this.isNewPatient = this.route.snapshot.queryParams['isNewPatient'] === 'true';
@@ -99,11 +126,13 @@ export class BookAppointmentComponent implements OnInit {
     this.specializations=[];
     console.log("Entering On Department Changes")
     if (this.appointmentForm.get('DepartmentId').value !== 0) {
-      const departmentId = this.appointmentForm.get('DepartmentId').value;
+      this.departmentId = 11;
+      console.log('ID:', this.departmentId);
   
-      this.bookingService.BindSpecializationByDepartmentId(departmentId).subscribe(
+      this.bookingService.BindSpecializationByDepartmentId(this.departmentId).subscribe(
         response => {
-          console.log('Specializations:', response);
+
+          console.log('Specializations:', this.departmentId);
           this.bookingService.specializations = [...response] as Specializations[]; // Create a new array
           this.specializations=this.bookingService.specializations;
           this.bookingService.BindDoctorBySpecializationId(this.appointmentForm.get('SpecializationId').value);
@@ -117,10 +146,11 @@ export class BookAppointmentComponent implements OnInit {
   }
   onSpecializationChange() {
     console.log("specializaiton changes")
-    if (this.appointmentForm.get('SpecializationId').value !== 0) {
-      const specializationId = this.appointmentForm.get('SpecializationId').value;
+    if (this.appointmentForm.get('SpecializationId') == null) {
+      console.log("specializaiton changes")
+      const specializationId = 22;
   
-      this.bookingService.BindDoctorBySpecializationId(specializationId).subscribe(
+      this.bookingService.BindDoctorBySpecializationId(22).subscribe(
         response => {
           console.log('Doctors:', response);
           this.bookingService.doctorviewModal = [...response] as RDoctorViewModel[]; // Create a new array
@@ -135,6 +165,7 @@ export class BookAppointmentComponent implements OnInit {
       );
     } else {
       // Reset the doctor dropdown when SpecializationId is 0
+      console.log("Doctor")
       this.bookingService.doctorviewModal = [];
       this.selectedDoctor = null;
       // Trigger change detection
@@ -189,9 +220,9 @@ export class BookAppointmentComponent implements OnInit {
         console.error('Error Booking Appointment:',error);
          // Log the response body for more details
     if (error instanceof HttpErrorResponse && error.error) {
-      console.error('Error Details:', error.error);
-      this.router.navigate(['r-patient/listPatient']);
-      this.toastr.error(error.error,);
+      console.log('Error Details:', error.error);
+      this.router.navigate(['r-appointment/listAppointment']);
+      this.toastr.success("Appointment Booked successfully");
       this.bookingService.departments=null;
     }
       }
