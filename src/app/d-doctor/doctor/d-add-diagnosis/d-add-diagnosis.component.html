@@ -59,16 +59,17 @@
   </div>
 
   <div class="form-group">
-    <label for="MedicineQuantity">Medicine Quantity</label>
+    <label>Medicine Quantity</label>
     <div class="input-group">
-      <input [value]="medicineQuantity" type="number" disabled="true" name="MedicineQuantity" id="MedicineQuantity" #MedicineQuantity="ngModel"
-        [(ngModel)]="diagnosisService.formData.MedicineQuantity" class="form-control" required
+      <input type="number" name="MedicineQuantity" id="MedicineQuantity" #MedicineQuantity="ngModel"
+        [(ngModel)]="medicineQuantity" class="form-control" required
         [ngClass]="{'is-invalid': MedicineQuantity.touched && MedicineQuantity.invalid}">
       <div class="input-group-append">
         <span class="input-group-text">units</span>
       </div>
     </div>
   </div>
+
 
   <div class="form-group">
     <label for="LabTestId">Lab Test</label>

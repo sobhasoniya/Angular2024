@@ -87,6 +87,7 @@ public medicineQuantity: number = 0;
 }
 
 calculateMedicineQuantity(): void {
+  console.log(this.diagnosisService.formData.Dosage);
   const dosageParts = this.diagnosisService.formData.Dosage.split('-').map(part => +part);
   const days = this.diagnosisService.formData.DosageDays;
 

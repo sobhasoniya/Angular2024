@@ -104,10 +104,13 @@
   <div class="form-group">
     <label>MobileNo&nbsp;</label>
     <input name="MobileNo" #MobileNo="ngModel" [(ngModel)]="staffService.formData.MobileNo" class="form-control"
-      placeholder="Enter MobileNo" minlength="3" maxlength="25" required
+      placeholder="Enter MobileNo" minlength="3" maxlength="25" required pattern="[0-9]{10}"
       [ngClass]="{'is-invalid': MobileNo.touched && MobileNo.invalid}">
 
     <div class="Validation-error" *ngIf="MobileNo.touched && MobileNo.invalid">
+      <div class="validation-error text-danger" *ngIf="PhNo.touched && PhNo.invalid">
+        Contact is required and must be exactly 10 digits.
+      </div>
       <div>MobileNo is required</div>
     </div>
   </div>
