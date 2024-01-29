@@ -4,67 +4,62 @@
   <!-- Appointment Section -->
   <div class="row">
     <div class="col-md-6 mb-3">
-      <label for="AppointmentId">AppointmentId:</label>
-      <input type="text" id="AppointmentId" name="AppointmentId" [(ngModel)]="labreportgeneration.formData.AppointmentId" class="form-control" required readonly>
+      <label for="appointmentId">AppointmentId:</label>
+      <input type="text" id="appointmentId" name="appointmentId" [(ngModel)]="lLabTestsVMService.formData.AppointmentId" class="form-control" required readonly>
     </div>
-    <br>
-    <div class="row">
-
-        <input type="hidden" id="StaffId" name="StaffId" [(ngModel)]="labreportgeneration.formData.StaffId" class="form-control" required readonly>
-
-      </div>
-
-      <div class="row">
-
-          <input type="hidden" id="TestId" name="TestId" [(ngModel)]="labreportgeneration.formData.TestId" class="form-control" required readonly>
-
-        </div>
-
 
     <div class="col-md-6 mb-3">
       <label for="patientName">PatientName:</label>
-      <input type="text" id="patientName" name="patientName" [(ngModel)]="lLabTestsVMService.formData.PatientName" class="form-control" required required readonly>
+      <input type="text" id="patientName" name="patientName" [(ngModel)]="lLabTestsVMService.formData.PatientName" class="form-control" required readonly>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-6 mb-3">
       <label for="doctorName">DoctorName:</label>
-      <input type="text" id="doctorName" name="doctorName" [(ngModel)]="lLabTestsVMService.formData.DoctorName" class="form-control" required required readonly>
+      <input type="text" id="doctorName" name="doctorName" [(ngModel)]="lLabTestsVMService.formData.DoctorName" class="form-control" required readonly>
     </div>
 
     <div class="col-md-6 mb-3">
       <label for="testName">TestName:</label>
-      <input type="text" id="testName" name="testName" [(ngModel)]="lLabTestsVMService.formData.TestName" class="form-control" required required readonly>
+      <input type="text" id="testName" name="testName" [(ngModel)]="lLabTestsVMService.formData.TestName" class="form-control" required readonly>
     </div>
   </div>
 
   <!-- Lab Report Section -->
-   <div class="row">
-
-      <input type="hidden" id="ReportId" name="ReportId" [(ngModel)]="labreportgeneration.formData.ReportId" class="form-control" required>
-    </div>
-
-    <div class="col-md-6 mb-3">
-      <label for="ReportDate">ReportDate:</label>
-      <input type="date" id="ReportDate" name="ReportDate" [(ngModel)]="labreportgeneration.formData.ReportDate" class="form-control" required>
-    </div>
-
-
   <div class="row">
+    <input type="hidden" id="labreportId" name="labreportId" [(ngModel)]="labreportgeneration.formData.ReportId" class="form-control" required>
+    <input type="hidden" id="StaffId" name="StaffId" [(ngModel)]="lgetidvmService.getidvm1.StaffId" class="form-control" required>
+    <input type="hidden" id="TestId" name="TestId" [(ngModel)]="lgetidvmService.getidvm1.TestId" class="form-control" required>
     <div class="col-md-6 mb-3">
-      <label for="TestResult">TestResult:</label>
-      <input type="text" id="TestResult" name="TestResult" [(ngModel)]="labreportgeneration.formData.TestResult" class="form-control" required>
-    </div>
-
-    <div class="col-md-6 mb-3">
-      <label for="Remarks">Remarks:</label>
-      <textarea id="Remarks" name="Remarks" [(ngModel)]="labreportgeneration.formData.Remarks" class="form-control"></textarea>
+      <label for="reportDate">ReportDate:</label>
+      <input type="date" id="reportDate" name="reportDate" [(ngModel)]="labreportgeneration.formData.ReportDate" class="form-control" required
+             min="{{ getCurrentDate() | date: 'yyyy-MM-dd' }}">
     </div>
   </div>
 
-  <button type="submit" class="btn btn-primary"(click)="generateReport()">Submit</button>
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="testResult">TestResult:</label>
+      <input type="text" id="testResult" name="testResult" [(ngModel)]="labreportgeneration.formData.TestResult" class="form-control" required>
+      <div *ngIf="labForm.submitted && labForm.controls['testResult'].hasError('required')" class="text-danger">
+        Test Result is required.
+      </div>
+    </div>
 
+    <div class="col-md-6 mb-3">
+      <label for="remarks">Remarks:</label>
+      <textarea id="remarks" name="remarks" [(ngModel)]="labreportgeneration.formData.Remarks" class="form-control"></textarea>
+    </div>
+  </div>
+
+  <div *ngIf="labForm.submitted && labForm.invalid" class="text-danger">
+    Please fill in all required fields.
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-<div><button (click)="goBack()">Back</button></div>
 
+<div>
+  <button (click)="goBack()" class="btn btn-secondary">Back</button>
+</div>

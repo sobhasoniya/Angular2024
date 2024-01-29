@@ -5,6 +5,7 @@ DoctorName:string=null;
 TestName:string=null;
 LabTestStatus:string=null;
 TestId:number=0;
+LabPrescriptionId: number = 0;
 
 
 }

@@ -1,27 +1,51 @@
-
-<div class="lab-report">
-    <h2>Bill</h2>
-     <div>
-      <label>appointmentId:</label>
-      <span>{{ lLabTestsVMService.formData.AppointmentId }}</span>
-    </div>
-    <div>
-      <label>Patient Name:</label>
-      <span>{{ lLabTestsVMService.formData.PatientName }}</span>
-    </div>
-    <div>
-      <label>Test Name:</label>
-      <span>{{ lLabTestsVMService.formData.TestName }}</span>
-    </div>
-    <div>
-      <label>price:</label>
-      <span>50</span>
-    </div>
-    <div>
-      <label>Total Amount:</label>
-      <span>50</span>
-    </div>
-    
-    <button (click)="printLabReport()">Print</button>
+<div class="labbill-container">
+  <div class="labbill-card">
+    <div class="labbillvm">
+      <h2>BillDetails</h2>
+      <div>
+        <label>LabBillId:</label>
+        <span>{{lbillService.formData_L.BillId}}</span>
+      </div>
+      <div>
+        <label>BillDate:</label>
+        <span>30/01/2024</span>
+      </div>
+      <div>
+        <label>PatientName:</label>
+        <span>{{lbillService.formData_L.PatientName}}</span>
+      </div>
+      <div>
+        <label>TestName:</label>
+        <span>{{lbillService.formData_L.TestName}}</span>
+      </div>
+      <div>
+        <label>TestAmount:</label>
+        <span>{{lbillService.formData_L.Price}}</span>
+      </div>
+      <div>
+        <label>TotalAmount:</label>
+        <span>{{lbillService.formData_L.TotalAmount}}</span>
+      </div>
+      <div>
+        <!-- <label>PatientId</label>
+    <span>{{lbillService.formData_L.PatientId}}</span>
   </div>
-  <div><button (click)="goBack()">Back</button></div>
+  <div>
+    <label>TestId</label>
+    <span>{{lbillService.formData_L.TestId}}</span>
+  </div>
+  <div>
+    <label>LabreportId</label>
+    <span>{{lbillService.formData_L.ReportId}}</span>
+  </div>
+  <div>
+    <label>AppointmentId</label>
+    <span >{{lbillService.formData_L.AppointmentId}}</span>
+  </div> -->
+        <button (click)="printLabReport()">Print</button>
+
+      </div>
+
+      <div><button (click)="goBack()">Back</button></div>
+    </div>
+  </div>
