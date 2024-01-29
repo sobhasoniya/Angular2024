@@ -1,117 +1,143 @@
-<form name="medform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)" class="form-container">
+<br>
 
+<form name="medform" #form="ngForm" autocomplete="false" (ngSubmit)="onSubmit(form)">
+
+    <!-- DOM element should be equal to class property name because it is 
+    paswsing as the key when sending data as object -->
 
     <input  type="hidden" name="MedicineId" [(ngModel)]="medicineService.formData.MedicineId">
 
-
-
-    <div class="form-grup">
-        <label style="margin-left: 10px ">Medicine Code</label>
-        <input name="MedicineCode" #MedicineCode="ngModel" [(ngModel)]="medicineService.formData.MedicineCode"
-            class="form-control" placeholder="Enter the Medicine Code" minlength="3" maxlength="25" required
-            [ngClass]="{'is-invalid':MedicineCode.touched && MedicineCode.invalid}" style="margin-left: 10px ">
-
-
-        <div class="validation-error" *ngIf="MedicineCode.touched && MedicineCode.invalid">
-            <div>Medicine Code Is Required</div>
-        </div>
-
-    </div>
-    <br>
-
-
-
-
-
-    <div class="form-grup">
-        <label style="margin-left: 10px ">Medicine Name</label>
-        <input name="MedicineName" #MedicineName="ngModel" [(ngModel)]="medicineService.formData.MedicineName"
-            class="form-control" placeholder="Enter the Medicine Name" minlength="3" maxlength="25" required
-            [ngClass]="{'is-invalid':MedicineName.touched && MedicineName.invalid}" style="margin-left: 10px ">
-
-
-        <div class="validation-error" *ngIf="MedicineName.touched && MedicineName.invalid">
-            <div>Medicine Name Is Required</div>
-        </div>
-
-    </div>
-    <br>
-
-
-
-    <div class="form-grup">
-        <label style="margin-left: 10px ">Generic Name</label>
-        <input name="GenericName" #GenericName="ngModel" [(ngModel)]="medicineService.formData.GenericName"
-            class="form-control" placeholder="Enter the Generic Name" minlength="3" maxlength="25" required
-            [ngClass]="{'is-invalid':GenericName.touched && GenericName.invalid}" style="margin-left: 10px ">
-
-
-        <div class="validation-error" *ngIf="GenericName.touched && GenericName.invalid">
-            <div>Generic Name Is Required</div>
-        </div>
-
-    </div>
-    <br>
-
-
-    <div class="form-grup">
-        <label style="margin-left: 10px ">Company Name</label>
-        <input name="CompanyName" #CompanyName="ngModel" [(ngModel)]="medicineService.formData.CompanyName"
-            class="form-control" placeholder="Enter the Company Name" minlength="3" maxlength="25" required
-            [ngClass]="{'is-invalid':CompanyName.touched && CompanyName.invalid}" style="margin-left: 10px ">
-
-
-        <div class="validation-error" *ngIf="CompanyName.touched && CompanyName.invalid">
-            <div>Company Name Is Required</div>
-        </div>
-
-    </div>
-
-
-    <br>
-
-
-    <div class="form-grup">
-        <label style="margin-left: 10px ">Stock Quantity</label>
-        <input name="StockQuantity" #StockQuantity="ngModel" [(ngModel)]="medicineService.formData.StockQuantity" class="form-control"
-            placeholder="Enter Stock Quantity" minlength="1" maxlength="25" required
-            [ngClass]="{'is-invalid':StockQuantity.touched && StockQuantity.invalid}" style="margin-left: 10px ">
-
-
-        <div class="validation-error" *ngIf="StockQuantity.touched && StockQuantity.invalid">
-            <div>Stock Quantity Is Required</div>
-        </div>
-
-    </div>
-    <br>
-
-    <div class="form-grup">
-        <label style="margin-left: 10px ">Unit Price</label>
-        <input name="UnitPrice" #UnitPrice="ngModel" [(ngModel)]="medicineService.formData.UnitPrice" class="form-control"
-            placeholder="Enter Unit Price" minlength="1" maxlength="25" required
-            [ngClass]="{'is-invalid':UnitPrice.touched && UnitPrice.invalid}" style="margin-left: 10px ">
-
-
-        <div class="validation-error" *ngIf="UnitPrice.touched && UnitPrice.invalid">
-            <div>Unit Price Is Required</div>
-        </div>
-
-    </div>
-
-
-
-    <br>
-
+    <!--  -->
 
     <div class="form-group">
-        <button type="submit" [disabled]="!(form.valid && form.dirty)"
-            class="btn btn-sm btn-primary form-control">SUBMIT</button>
+        <label>Medicine Code &nbsp;</label>
+        <input name="MedicineCode"
+               #MedicineCode="ngModel"
+               [(ngModel)]="medicineService.formData.MedicineCode"
+               class="form-control"
+               placeholder="Enter Medicine Code"
+               minlength="3"
+               maxlength="25"
+               required
+               pattern="^[P]+[M][0-9]+$" 
+               [ngClass]="{'is-invalid': MedicineCode.touched && MedicineCode.invalid}">
+    
+        <div class="Validation-error" *ngIf="MedicineCode.touched && MedicineCode.invalid">
+            <div *ngIf="MedicineCode.errors.required">Medicine Code is required</div>
+            <div *ngIf="MedicineCode.errors.pattern">Medicine Code Should be in THe Format (PM[Followed by Numbers])</div>
+        </div>
     </div>
+    
 
+    <div class="form-group">
+        <label>Medicine Name &nbsp;</label>
+        <input name="MedicineName"
+               #MedicineName="ngModel"
+               [(ngModel)]="medicineService.formData.MedicineName"
+               class="form-control"
+               placeholder="Medicine Name"
+               minlength="3"
+               maxlength="25"
+               required
+               pattern="^[a-zA-Z]+$"
+               [ngClass]="{'is-invalid': MedicineName.touched && MedicineName.invalid}">
+    
+        <div class="Validation-error" *ngIf="MedicineName.touched && MedicineName.invalid">
+            <div *ngIf="MedicineName.errors.required">Medicine Name is required</div>
+            <div *ngIf="MedicineName.errors.pattern">Only alphabets are allowed</div>
+        </div>
+    </div>
+    <br>
+    
 
+        
+    <div class="form-group">
+        <label>Generic Name&nbsp;</label>
+        <input name="GenericName"
+               #GenericName="ngModel"
+               [(ngModel)]="medicineService.formData.GenericName"
+               class="form-control"
+               placeholder="Enter Generic Name"
+               minlength="3"
+               maxlength="25"
+               required
+               pattern="^[a-zA-Z]+$"
+        >
+    
+        <div class="Validation-error" *ngIf="GenericName.touched && GenericName.invalid">
+            <div *ngIf="GenericName.errors.required">Generic Name is required</div>
+            <div *ngIf="GenericName.errors.pattern">Only Alphabets are allowed</div>
+        </div>
+    </div>
+    <br>
+    
+    
 
+            
+    <div class="form-group">
+        <label>Company Name&nbsp;</label>
+        <input name="CompanyName"
+               #CompanyName="ngModel"
+               [(ngModel)]="medicineService.formData.CompanyName"
+               class="form-control"
+               placeholder="Enter Company Name"
+               minlength="3"
+               maxlength="25"
+               required
+               pattern="^[a-zA-Z]+$"
+               [ngClass]="{'is-invalid': CompanyName.touched && CompanyName.invalid}">
+    
+        <div class="Validation-error" *ngIf="CompanyName.touched && CompanyName.invalid">
+            <div *ngIf="CompanyName.errors.required">Company Name is required</div>
+            <div *ngIf="CompanyName.errors.pattern">Only alphabets are allowed</div>
+        </div>
+    </div>
+    <br>
+    
+    <div class="form-group">
+        <label>Stock Quantity&nbsp;</label>
+        <input name="StockQuantity"
+               #StockQuantity="ngModel"
+               [(ngModel)]="medicineService.formData.StockQuantity"
+               class="form-control"
+               placeholder="Enter Stock Quantity"
+               minlength="1" 
+               maxlength="25"
+               required
+               pattern="^\d+$" 
+               [ngClass]="{'is-invalid': StockQuantity.touched && StockQuantity.invalid}">
+    
+        <div class="Validation-error" *ngIf="StockQuantity.touched && StockQuantity.invalid">
+            <div *ngIf="StockQuantity.errors.required">Stock Quantity is required</div>
+            <div *ngIf="StockQuantity.errors.pattern">Please enter a valid numeric value</div>
+        </div>
+    </div>
+    <br>
+    
+    <div class="form-group">
+        <label>Unit Price&nbsp;</label>
+        <input name="UnitPrice"
+               #UnitPrice="ngModel"
+               [(ngModel)]="medicineService.formData.UnitPrice"
+               class="form-control"
+               placeholder="Enter Unit Price"
+               minlength="1" 
+               maxlength="25"
+               required
+               pattern="^\d+(\.\d{1,2})?$" 
+               [ngClass]="{'is-invalid': UnitPrice.touched && UnitPrice.invalid}">
+    
+        <div class="Validation-error" *ngIf="UnitPrice.touched && UnitPrice.invalid">
+            <div *ngIf="UnitPrice.errors.required">Unit Price is required</div>
+            <div *ngIf="UnitPrice.errors.pattern">Please enter a valid numeric value</div>
+        </div>
+    </div>
+    <br>
+    
+                <div class="form-group">
 
-
-
-</form>
-<button class="btn btn-dark "style="float: left; margin-left: 0px;"   (click)="goBack()">Back</button>
+                    <!-- Dirty is the tearm used to flag if the data or state has changed -->
+                    <button type="submit" [disabled]="!(form.valid && form.dirty)" class="btn btn-lg btn-primary form-control">Submit</button>
+                </div>
+                <button class="btn btn-dark mt-3" (click)="goBack()">Back</button>
+                </form>
