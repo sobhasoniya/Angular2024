@@ -11,6 +11,27 @@ import { Router } from '@angular/router';
 })
 export class AddPatientComponent implements OnInit {
 
+  getMinDOBDate(): string {
+    const currentDate = new Date();
+    const minDOBDate = new Date(currentDate);
+    minDOBDate.setFullYear(currentDate.getFullYear() - 60); // Set 18 years ago
+    return this.formatDate(minDOBDate);
+  }
+
+  getMaxDOBDate(): string {
+    const currentDate = new Date();
+    const maxDOBDate = new Date(currentDate);
+    maxDOBDate.setFullYear(currentDate.getFullYear()); // Set 60 years ago
+    return this.formatDate(maxDOBDate);
+  }
+
+  formatDate(date: Date): string {
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
   constructor(public patientsServices:PatientsService,
     private toastr:ToastrService, private router:Router  ) { }
 
@@ -37,7 +58,7 @@ export class AddPatientComponent implements OnInit {
         console.log(result);
         this.resetForm(form);
         //alert
-        this.toastr.success('added sucessfully', 'CMS App 2023');
+        this.toastr.success('added sucessfully', 'Maple Health Care');
 
         this.router.navigate(['r-patient/listPatient']);
 
@@ -53,7 +74,7 @@ export class AddPatientComponent implements OnInit {
       (result)=>{
         //console.log(result);
         this.resetForm(form);
-        this.toastr.success('updated sucessfully','EMS APP 2024');
+        this.toastr.success('Updated sucessfully','MAPLE HEALTH CARE');
         this.router.navigate(['r-patient/listPatient']);
       }
     )
@@ -71,11 +92,9 @@ export class AddPatientComponent implements OnInit {
 
 
   backtoPatientList(){
-    this.router.navigate(['/r-appointment/home']);
+    this.router.navigate(['/r-patient/listPatient']);
   }
 }
 
       
-
-
 

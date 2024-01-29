@@ -31,6 +31,7 @@ export class RAppointmentViewModelService {
 
   //Get All Specialization By Id
   BindSpecializationByDepartmentId(deparmentId:number):Observable<any>{
+    console.log('specId'+deparmentId)
     return this.httpClient.get(environment.apiUrl+'/api/RAppointments/GetSpecializationByDepartmentId/'+deparmentId);
   }
    //Bind All Doctors By SpecializationId

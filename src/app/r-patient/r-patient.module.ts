@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditPatientComponent } from './edit-patient/edit-patient.component';
 import { DetailsPatientComponent } from './details-patient/details-patient.component';
 import {  Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -19,6 +20,7 @@ import {  Ng2SearchPipeModule } from 'ng2-search-filter';
     FormsModule,
     ReactiveFormsModule,
     Ng2SearchPipeModule,
+    NgxPaginationModule
 
   ]
 })
