@@ -1,5 +1,27 @@
 .form-container {
-  width:70%;
+  width: 70%;
   margin: 0 auto;
   padding: 10px;
+
+  .form-control {
+    margin-bottom: 10px;
+  }
+
+  button {
+    margin-right: 10px;
+  }
+}
+
+.dialog-buttons button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.table {
+  margin-top: 20px;
+
+  th, td {
+    text-align: center;
+  }
 }
